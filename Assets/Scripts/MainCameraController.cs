@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class MainCameraController : MonoBehaviour
 {
     private Camera MainCamera;
-    private Transform ufoTransform; // ufo
+    private Transform t_Player;
+    public int Smoothvalue = 2;
+    public float PosY = 1;
 
     Transform SpriteMask;
     float cun;
     void Start()
     {
         MainCamera = GetComponent<Camera>();
-        ufoTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        t_Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         SetSize();
         SpriteMask = GetComponentInChildren<Transform>();
         cun = Mathf.Sqrt(Screen.width * Screen.width + Screen.height * Screen.height)/100f;
@@ -24,10 +27,7 @@ public class MainCameraController : MonoBehaviour
 
     void Update()
     {
-        if (Global.gameStart)
-        {
-            Move();
-        }
+        Move();
     }
 
     //设置相机大小和屏幕大小一致  set  Camera & Screen Size same
@@ -35,14 +35,14 @@ public class MainCameraController : MonoBehaviour
     {
         if (MainCamera.orthographic)
         {
-            
             MainCamera.orthographicSize = Screen.height / 2 / 100f;
         }
     }
 
-    //follow UFO
+    //follow player
     void Move()
     {
-        transform.position = new Vector3(ufoTransform.position.x, ufoTransform.position.y, -10f);
+        Vector3 Targetpos = new(0, t_Player.position.y + PosY, -10f);
+        transform.position = Vector3.Lerp(transform.position, Targetpos, Time.deltaTime * Smoothvalue);
     }
 }

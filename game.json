@@ -1,1 +1,4 @@
-{"deviceOrientation":"portrait","menuButtonStyle":"dark"}
+{
+  "deviceOrientation": "landscape",
+  "menuButtonStyle": "dark"
+}

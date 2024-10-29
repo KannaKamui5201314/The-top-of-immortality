@@ -1,1 +1,23 @@
-{"appid":"","projectname":"The top of immortality","unity":{"build":{"webgl":"","native":{"il2cpp":"","apk":"","fullApk":""},"instantGame":""},"publishType":"","starkSdkVersion":"Without StarkSDK","unityToolsVersion":"4.0.2","unityEngineVersion":"2022.3.43f1c1","arch":""}}
+{
+    "appid": "tt865bf0e6196ff44b07",
+    "projectname": "The top of immortality",
+    "unity": {
+        "build": {
+            "webgl": "E:\\Unity_program\\unity\\The top of immortality\\build\\WebGL\\webgl_package-20241027_152500.zip",
+            "native": {
+                "il2cpp": "",
+                "apk": "",
+                "fullApk": ""
+            },
+            "instantGame": ""
+        },
+        "publishType": "2",
+        "starkSdkVersion": "Without StarkSDK",
+        "unityToolsVersion": "4.0.2",
+        "unityEngineVersion": "2022.3.43f1c1",
+        "arch": "both"
+    },
+    "setting": {
+        "urlCheck": true
+    }
+}

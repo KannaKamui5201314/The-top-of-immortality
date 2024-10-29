@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class floor : MonoBehaviour
 {
-    Rigidbody2D player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.gravityScale = 0;
+            //Debug.Log("Enter");
+            Global.IsOnFloor = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //Debug.Log("Exit");
+            Global.IsOnFloor = false;
         }
     }
 }

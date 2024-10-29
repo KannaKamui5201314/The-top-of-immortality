@@ -348,16 +348,16 @@ AnimatorStateMachine:
     m_Position: {x: 430, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4164361068241279183}
-    m_Position: {x: 440, y: 380, z: 0}
+    m_Position: {x: 810, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2688217264381709929}
-    m_Position: {x: 450, y: 390, z: 0}
+    m_Position: {x: 560, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3344688224473703101}
     m_Position: {x: 460, y: 400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7258550601763295257}
-    m_Position: {x: 470, y: 410, z: 0}
+    m_Position: {x: 640, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5806586439059666452}
     m_Position: {x: 480, y: 420, z: 0}
@@ -692,7 +692,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: run
+  m_Name: Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

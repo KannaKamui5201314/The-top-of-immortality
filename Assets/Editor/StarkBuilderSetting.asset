@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 1315287583, guid: b68b64a39a7151e47b0e6daeac0cd8cf, type: 3}
   m_Name: StarkBuilderSetting
   m_EditorClassIdentifier: 
-  wasmResourceUrl: 
-  webGLOutputDir: 
+  wasmResourceUrl: http://
+  webGLOutputDir: E:/Unity_program/unity/The top of immortality/build/WebGL
   useByteAudioAPI: 0
   wasmMemorySize: 128
   isWebGL2: 0
-  needCompress: 1
+  needCompress: 0
   symbolMode: 1
   profiling: 0
   buildOptions: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
   appHost: 2
   compressMethod: 1
   runtimeEnv: 0
-  framework: 0
+  framework: 1
   architecture: 2
   miniApkVersion: 0
   scriptingBackend: 0
@@ -44,9 +44,9 @@ MonoBehaviour:
   a: 
   version: 
   autoVersion: 0
-  b: 
+  b: E:\Unity_program\unity\The top of immortality\build\WebGL\webgl_package-20241027_152500.zip
   c: 0
   d: 0
   e: 0
   publishDesc: 
-  idePath: 
+  idePath: "E:/Program Files/@bytedminiprogram-ide/\u6296\u97F3\u5F00\u53D1\u8005\u5DE5\u5177.exe"
