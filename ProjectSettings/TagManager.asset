@@ -7,14 +7,16 @@ TagManager:
   - Ground
   - Block
   - floor
+  - floors
+  - SpriteMask
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - SpriteMask
   - 
   - 
   - 

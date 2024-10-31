@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TTSDK;
 using UnityEngine;
 //using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    public int Boundary;
+    public int ply_Boundary;
+
     BoxCollider2D bobyCollider;
     Rigidbody2D r_Player;
     Animator a_Player;
@@ -22,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Boundary = Global.Boundary;
+        ply_Boundary = TT.PlayerPrefs.GetInt("Boundary");
         Move();
     }
 
@@ -32,6 +38,10 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+        if (a_Player.GetCurrentAnimatorStateInfo(0).IsName("knockdown"))
+        {
+            return;
+        }
         if (Global.IsOnFloor)
         {
             if (moveJoystick.Horizontal == 0)
@@ -87,7 +97,11 @@ public class PlayerController : MonoBehaviour
         {
             //下落为碰撞器
             Global.isJumpUp = false;
-            a_Player.Play("jump fall");
+            if (!a_Player.GetCurrentAnimatorStateInfo(0).IsName("knockdown"))
+            {
+                a_Player.Play("jump fall");
+            }
+            
             if (!Global.isJumpDown)
             {
                 //下跳过程为触发器，整体离开了地板再变成碰撞器
