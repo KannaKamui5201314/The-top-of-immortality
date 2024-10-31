@@ -10,5 +10,7 @@ public class Global
     public static bool isJumpDown = false;
     public static bool IsOnFloor = false;
 
+    public static bool IsAttack = false;
+
     public static int InitialFloorCount = 100;
 }

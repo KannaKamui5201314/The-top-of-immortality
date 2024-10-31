@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     private Button C;
+    private Button Attack;
+
     private Transform Loading;
     private TextMeshProUGUI LoadingText;
     private bool isLoaded;
@@ -19,6 +21,9 @@ public class UIController : MonoBehaviour
     {
         C = transform.Find("C").GetComponent<Button>();
         C.onClick.AddListener(COnclick);
+        Attack = transform.Find("Attack").GetComponent<Button>();
+        Attack.onClick.AddListener(AttackOnclick);
+
         Loading = transform.Find("Loading");
         LoadingText = Loading.GetComponentInChildren<TextMeshProUGUI>();
         Loading.gameObject.SetActive(true);
@@ -34,6 +39,10 @@ public class UIController : MonoBehaviour
         {
             Global.IsJumpStart = true;
         }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            Global.IsAttack = true;
+        }
     }
 
     //加载界面
@@ -43,8 +52,8 @@ public class UIController : MonoBehaviour
         {
             if (Global.InitialFloorCount > floors.childCount)
             {
-                LoadingSum = 100f * floors.childCount / Global.InitialFloorCount;
-                Debug.Log(LoadingSum);
+                LoadingSum = 100f * floors.childCount / Global.InitialFloorCount;//浮点数在前才能自动转换结果为浮点数
+                //Debug.Log(LoadingSum);
                 LoadingText.text = LoadingSum.ToString() + "%";
             }
             else
@@ -58,5 +67,10 @@ public class UIController : MonoBehaviour
     private void COnclick()
     {
         Global.IsJumpStart = true;
+    }
+
+    private void AttackOnclick()
+    {
+        Global.IsAttack = true;
     }
 }

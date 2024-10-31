@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public float JumpUpForce = 13f;
     public float JumpDownForce = 10f;
 
+    private void Awake()
+    {
+        TT.InitSDK();
+    }
+
     void Start()
     {
         bobyCollider = GetComponent<BoxCollider2D>();
@@ -29,6 +34,7 @@ public class PlayerController : MonoBehaviour
         Boundary = Global.Boundary;
         ply_Boundary = TT.PlayerPrefs.GetInt("Boundary");
         Move();
+        ChangeAnimation();
     }
 
     private void FixedUpdate()
@@ -36,12 +42,19 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
 
-    void Move()
+    void ChangeAnimation()
     {
         if (a_Player.GetCurrentAnimatorStateInfo(0).IsName("knockdown"))
         {
             return;
         }
+
+        Attack();
+        if (a_Player.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+        {
+            return;
+        }
+
         if (Global.IsOnFloor)
         {
             if (moveJoystick.Horizontal == 0)
@@ -52,8 +65,24 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //在地板上，摇杆动了
-                a_Player.Play("Run");
+                a_Player.Play("run");
             }
+        }
+
+        if (Global.isJumpUp)
+        {
+            a_Player.Play("jump up");
+        }
+        if (r_Player.velocity.y < 0)
+        {
+            a_Player.Play("jump fall");
+        }
+    }
+
+    void Move()
+    {
+        if (Global.IsOnFloor)
+        {
             //在地板上，只有水平移动
             r_Player.velocity = new(Global.PlayerRunSpeed * moveJoystick.Horizontal, 0);
         }
@@ -76,6 +105,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Attack()
+    {
+        if (Global.IsAttack)
+        {
+            Global.IsAttack = false;
+            a_Player.Play("attack");
+        }
+    }
     void Jump()
     {
         if (Global.IsJumpStart)
@@ -97,11 +134,12 @@ public class PlayerController : MonoBehaviour
         {
             //下落为碰撞器
             Global.isJumpUp = false;
-            if (!a_Player.GetCurrentAnimatorStateInfo(0).IsName("knockdown"))
-            {
-                a_Player.Play("jump fall");
-            }
-            
+            //Global.isJumpDown = true;
+            //if (!a_Player.GetCurrentAnimatorStateInfo(0).IsName("knockdown"))
+            //{
+            //    a_Player.Play("jump fall");
+            //}
+
             if (!Global.isJumpDown)
             {
                 //下跳过程为触发器，整体离开了地板再变成碰撞器
@@ -128,7 +166,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("isTrigger = " + bobyCollider.isTrigger);
         Global.IsOnFloor = false;
         Global.isJumpUp = true;
-        a_Player.Play("jump up");
+        //a_Player.Play("jump up");
         r_Player.velocity = Vector2.zero;
         r_Player.AddForce(Vector2.up * JumpUpForce, ForceMode2D.Impulse);
     }
@@ -140,7 +178,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("isTrigger = " + bobyCollider.isTrigger);
         Global.IsOnFloor = false;
         Global.isJumpDown = true;
-        a_Player.Play("jump fall");
+        //a_Player.Play("jump fall");
         r_Player.AddForce(-Vector2.up * JumpDownForce);
         //StartCoroutine(GroundCapsulleColliderTimmerFuc());
     }
