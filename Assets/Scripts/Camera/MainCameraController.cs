@@ -19,7 +19,7 @@ public class MainCameraController : MonoBehaviour
         SpriteMask = this.transform.Find("SpriteMask");
         cun = Mathf.Sqrt(Screen.width * Screen.width + Screen.height * Screen.height)/100f;
         //动态修改遮罩大小
-        Debug.Log(cun);
+        //Debug.Log(cun);
         SpriteMask.localScale = new(cun + 1f, cun + 1f, 1f);
     }
 

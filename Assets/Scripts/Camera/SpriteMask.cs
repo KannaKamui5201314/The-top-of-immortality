@@ -10,7 +10,7 @@ public class SpriteMask : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("floor"))
         {
-            Debug.Log("floor");
+            //Debug.Log("floor");
             spriteRenderer = collision.gameObject.GetComponent<SpriteRenderer>();
             SetColorHSV();
         }
