@@ -1,4 +1,4 @@
-public class RankInfo
+public class Realm
 {
     public static string[] info =
     {

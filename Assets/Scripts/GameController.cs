@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    void Start()
+    private void Awake()
     {
         Init();
+    }
+    void Start()
+    {
     }
 
     void Update()
@@ -17,23 +20,28 @@ public class GameController : MonoBehaviour
 
     void Init()
     {
-        //设置地界
+        TT.InitSDK();
+        //所处地界
         if (TT.PlayerPrefs.GetInt("Boundary") == 0)
         {
             TT.PlayerPrefs.SetInt("Boundary", 1);
         }
+        //境界
         if (TT.PlayerPrefs.GetInt("Realm") == 0)
         {
             TT.PlayerPrefs.SetInt("Realm", 1);
         }
+        //最大血量
         if (TT.PlayerPrefs.GetInt("Health") == 0)
         {
             TT.PlayerPrefs.SetInt("Health", 100);
         }
+        //最大力量
         if (TT.PlayerPrefs.GetInt("Strength") == 0)
         {
             TT.PlayerPrefs.SetInt("Strength", 100);
         }
+        //最大防御
         if (TT.PlayerPrefs.GetInt("Defense") == 0)
         {
             TT.PlayerPrefs.SetInt("Defense", 50);
