@@ -39,7 +39,7 @@ public class UIController : MonoBehaviour
         {
             Global.IsJumpStart = true;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && Application.isEditor)
         {
             Global.IsAttack = true;
         }

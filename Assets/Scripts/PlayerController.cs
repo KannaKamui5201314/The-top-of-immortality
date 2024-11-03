@@ -35,16 +35,6 @@ public class PlayerController : MonoBehaviour
         ply_Boundary = TT.PlayerPrefs.GetInt("Boundary");
         Move();
         ChangeAnimation();
-
-        //限制在屏幕内
-        if (transform.position.x>= Screen.width/2f/100f + 0.5f)
-        {
-            transform.position = new(-Screen.width / 2f / 100f, transform.position.y);
-        }
-        else if (transform.position.x <= -Screen.width / 2f / 100f - 0.5f)
-        {
-            transform.position = new(Screen.width / 2f / 100f, transform.position.y);
-        }
     }
 
     private void FixedUpdate()
@@ -111,7 +101,19 @@ public class PlayerController : MonoBehaviour
         
         if (moveJoystick.Horizontal != 0)
         {
-            transform.localScale = new Vector3(0.5f* (moveJoystick.Horizontal / Mathf.Abs(moveJoystick.Horizontal)),0.5f,1f);//player 朝向
+            //player 朝向
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * Mathf.Sign(moveJoystick.Horizontal), 
+                                                            transform.localScale.y, transform.localScale.z);
+        }
+
+        //限制在屏幕内
+        if (transform.position.x >= Screen.width / 2f / 100f + 0.5f)
+        {
+            transform.position = new(-Screen.width / 2f / 100f, transform.position.y);
+        }
+        else if (transform.position.x <= -Screen.width / 2f / 100f - 0.5f)
+        {
+            transform.position = new(Screen.width / 2f / 100f, transform.position.y);
         }
     }
 
