@@ -35,6 +35,16 @@ public class PlayerController : MonoBehaviour
         ply_Boundary = TT.PlayerPrefs.GetInt("Boundary");
         Move();
         ChangeAnimation();
+
+        //限制在屏幕内
+        if (transform.position.x>= Screen.width/2f/100f + 0.5f)
+        {
+            transform.position = new(-Screen.width / 2f / 100f, transform.position.y);
+        }
+        else if (transform.position.x <= -Screen.width / 2f / 100f - 0.5f)
+        {
+            transform.position = new(Screen.width / 2f / 100f, transform.position.y);
+        }
     }
 
     private void FixedUpdate()

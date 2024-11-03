@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5671074042809019823}
   - component: {fileID: 4822398208353430945}
   m_Layer: 0
-  m_Name: 001 Student 1 Character
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
