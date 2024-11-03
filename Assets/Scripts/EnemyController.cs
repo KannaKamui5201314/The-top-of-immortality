@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
 
     int action = 1;
     float actionTimer;
+
+    bool isAttack;
     
     void Start()
     {
@@ -53,10 +55,15 @@ public class EnemyController : MonoBehaviour
 
     void Action()
     {
-        Debug.Log(action);
+        //Debug.Log(action);
         //¸ÐÖª
         if (p_Enemy.IsPerception())
         {
+            if (isAttack)
+            {
+                action = 0;
+                return;
+            }
             action = 2 * (int)Mathf.Sign(PlayerDirection_X());
             return;
         } 
@@ -79,6 +86,11 @@ public class EnemyController : MonoBehaviour
     {
         if (p_Enemy.IsPerception())
         {
+            if (isAttack)
+            {
+                a_Enemy.Play("attack");
+                return;
+            }
             a_Enemy.Play("run");
             return;
         }
@@ -101,6 +113,22 @@ public class EnemyController : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isAttack = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isAttack = false;
         }
     }
 }

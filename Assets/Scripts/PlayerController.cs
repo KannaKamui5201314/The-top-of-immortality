@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
             //空中水平方向移动
             if (moveJoystick.Horizontal != 0)
             {
-                r_Player.velocity = new(Global.PlayerRunSpeed * (moveJoystick.Horizontal / Mathf.Abs(moveJoystick.Horizontal)), r_Player.velocity.y);
+                r_Player.velocity = new(Global.PlayerRunSpeed * Mathf.Sign(moveJoystick.Horizontal), r_Player.velocity.y);
             }
             else
             {
@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
             Global.IsJumpStart = false;
             //按了跳就设置isTrigger为true
             bobyCollider.isTrigger = true;
+            //-45°-  -135°  下方90°的范围
             if (moveJoystick.Vertical < 0 && Mathf.Abs(moveJoystick.Vertical) > Mathf.Abs(moveJoystick.Horizontal) && Global.IsOnFloor)
             {
                 JumpDown();//只有在地板上才向下跳，其余自由落体
