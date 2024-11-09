@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using TTSDK;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -13,8 +15,12 @@ public class EnemyController : MonoBehaviour
     int action = 1;
     float actionTimer;
 
-    bool isAttack;
-    
+    public bool isHit;
+
+    RectTransform Canvas_Health;
+    RectTransform Health;
+    TextMeshProUGUI HealthText;
+
     void Start()
     {
         t_Player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -22,6 +28,16 @@ public class EnemyController : MonoBehaviour
         a_Enemy = GetComponent<Animator>();
         r_Enemy = GetComponent<Rigidbody2D>();
         p_Enemy = GetComponentInChildren<Perception>();
+
+        Canvas_Health = (RectTransform)transform.Find("Canvas_Health");
+        Health = (RectTransform)Canvas_Health.Find("Panel_Health").Find("Health");
+        HealthText = Canvas_Health.Find("Panel_Health").Find("HealthText").GetComponent<TextMeshProUGUI>();
+
+        // 修改sizeDelta的x值来改变宽度，y值保持不变
+        Vector2 sizeDelta = Health.sizeDelta;
+        sizeDelta.x = 1.5f * Player.Health / long.Parse(TT.PlayerPrefs.GetString("Health"));
+        Health.sizeDelta = sizeDelta;
+        //HealthText.text = Player.Health.ToString();
     }
 
     void Update()
@@ -29,6 +45,11 @@ public class EnemyController : MonoBehaviour
         Action();
         Move();
         ChangeAnimation();;
+    }
+
+    private void OnDisable()
+    {
+        r_Enemy.velocity = Vector2.zero;
     }
 
     void Move()
@@ -40,6 +61,9 @@ public class EnemyController : MonoBehaviour
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * Mathf.Sign(action), 
                                                             transform.localScale.y, transform.localScale.z);
+            //Debug.Log(Canvas_Health.localScale);
+            //敌人是通过缩放改变朝向，改变朝向时也会导致血量条翻转，此处时根据摇杆方向使血量条不翻转
+            Canvas_Health.localScale = new(Mathf.Sign(action) * Mathf.Abs(Canvas_Health.localScale.x), Canvas_Health.localScale.y);
         }
         
         //限制在屏幕内
@@ -59,7 +83,7 @@ public class EnemyController : MonoBehaviour
         //感知
         if (p_Enemy.IsPerception())
         {
-            if (isAttack)
+            if (IsAttack())
             {
                 action = 0;
                 return;
@@ -84,9 +108,10 @@ public class EnemyController : MonoBehaviour
 
     void ChangeAnimation()
     {
+        //Debug.Log(p_Enemy.IsPerception() + "   " + isAttack);
         if (p_Enemy.IsPerception())
         {
-            if (isAttack)
+            if (IsAttack())
             {
                 a_Enemy.Play("attack");
                 return;
@@ -116,19 +141,30 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    bool IsAttack()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (Mathf.Abs(PlayerDirection_X()) <= 4f)
         {
-            isAttack = true;
+            return true;
         }
+        else return false;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isAttack = false;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        Debug.Log("进来了");
+    //        isAttack = true;
+    //    }
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        Debug.Log("离开了");
+    //        isAttack = false;
+    //    }
+    //}
 }

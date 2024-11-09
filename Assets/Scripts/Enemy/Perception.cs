@@ -10,6 +10,7 @@ public class Perception : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            //Debug.Log("isPerception = " + isPerception);
             isPerception = true;
         }
     }

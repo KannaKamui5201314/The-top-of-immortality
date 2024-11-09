@@ -14,6 +14,22 @@ public class SpriteMask : MonoBehaviour
             spriteRenderer = collision.gameObject.GetComponent<SpriteRenderer>();
             SetColorHSV();
         }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            //优化性能
+            collision.gameObject.GetComponent<EnemyController>().enabled = true;
+            collision.gameObject.transform.Find("Skeletal").gameObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            //优化性能
+            collision.gameObject.GetComponent<EnemyController>().enabled = false;
+            collision.gameObject.transform.Find("Skeletal").gameObject.SetActive(false);
+        }
     }
 
     void SetColorHSV()

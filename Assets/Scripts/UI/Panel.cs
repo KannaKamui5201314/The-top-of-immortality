@@ -31,9 +31,16 @@ public class Panel : MonoBehaviour
         realm.text = Realm.info[Player.Realm - 1];
         // 修改sizeDelta的x值来改变宽度，y值保持不变
         Vector2 sizeDelta = Health.sizeDelta;
-        sizeDelta.x = 220f * Player.Health / TT.PlayerPrefs.GetInt("Health");
+        sizeDelta.x = 220f * Player.Health / long.Parse(TT.PlayerPrefs.GetString("Health"));
         Health.sizeDelta = sizeDelta;
-        HealthText.text = Player.Health.ToString();
+        if (Player.Health > 99999999999)
+        {
+            HealthText.text = "???????????";
+        }
+        else
+        {
+            HealthText.text = Player.Health.ToString();
+        }
 
     }
 

@@ -16,9 +16,9 @@ public class PersonalInfo : MonoBehaviour
         personalInfoQuit = transform.parent.GetComponent<Button>();
         personalInfoQuit.onClick.AddListener(OnQuitClick);
         info.text = "境界：" + Realm.info[Player.Realm - 1] + "\n" +
-                            "血量：" + TT.PlayerPrefs.GetInt("Health") + "\n" +
-                            "力量：" + TT.PlayerPrefs.GetInt("Strength") + "\n" +
-                            "防御：" + TT.PlayerPrefs.GetInt("Defense") + "\n";
+                            "血量：" + TT.PlayerPrefs.GetString("Health") + "\n" +
+                            "力量：" + TT.PlayerPrefs.GetString("Strength") + "\n" +
+                            "防御：" + TT.PlayerPrefs.GetString("Defense") + "\n";
 
 
     }

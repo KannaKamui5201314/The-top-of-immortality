@@ -5,11 +5,11 @@ using UnityEngine;
 public class Player
 {
     public static int Realm;
-    public static int Health;
-    public static int Strength;
-    public static int Defense;
+    public static long Health;
+    public static long Strength;
+    public static long Defense;
 
-    public Player(int realm,int health,int strength,int defense)
+    public Player(int realm, long health, long strength, long defense)
     {
         Realm = realm;
         Health = health;

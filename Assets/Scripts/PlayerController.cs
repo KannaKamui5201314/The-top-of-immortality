@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using TTSDK;
 using UnityEngine;
-//using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +17,14 @@ public class PlayerController : MonoBehaviour
     public float JumpUpForce = 13f;
     public float JumpDownForce = 10f;
 
+    GameObject Boom;
+    Transform Booms;
+    Transform Launcher;
+
+    RectTransform Canvas_Health;
+    RectTransform Health;
+    TextMeshProUGUI HealthText;
+
     private void Awake()
     {
         TT.InitSDK();
@@ -27,6 +35,28 @@ public class PlayerController : MonoBehaviour
         bobyCollider = GetComponent<BoxCollider2D>();
         r_Player = GetComponent<Rigidbody2D>();
         a_Player = GetComponent<Animator>();
+
+        Boom = Resources.Load<GameObject>("Prefabs/prop/Boom");
+        Booms = GameObject.FindGameObjectWithTag("Booms").transform;
+        Launcher = transform.Find("Launcher");
+
+        Canvas_Health = (RectTransform)transform.Find("Canvas_Health");
+        Health = (RectTransform)Canvas_Health.Find("Panel_Health").Find("Health");
+        HealthText = Canvas_Health.Find("Panel_Health").Find("HealthText").GetComponent<TextMeshProUGUI>();
+
+        // 修改sizeDelta的x值来改变宽度，y值保持不变
+        Vector2 sizeDelta = Health.sizeDelta;
+        sizeDelta.x = 1.1f * Player.Health / long.Parse(TT.PlayerPrefs.GetString("Health"));
+        Health.sizeDelta = sizeDelta;
+        if (Player.Health > 99999999999)
+        {
+            HealthText.text = "???????????";
+        }
+        else
+        {
+            HealthText.text = Player.Health.ToString();
+        }
+        
     }
 
     void Update()
@@ -104,6 +134,9 @@ public class PlayerController : MonoBehaviour
             //player 朝向
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * Mathf.Sign(moveJoystick.Horizontal), 
                                                             transform.localScale.y, transform.localScale.z);
+            //Debug.Log(Canvas_Health.localScale);
+            //角色是通过缩放改变朝向，改变朝向时也会导致血量条翻转，此处时根据摇杆方向使血量条不翻转
+            Canvas_Health.localScale = new(Mathf.Sign(moveJoystick.Horizontal)* Mathf.Abs(Canvas_Health.localScale.x), Canvas_Health.localScale.y);
         }
 
         //限制在屏幕内
@@ -122,7 +155,17 @@ public class PlayerController : MonoBehaviour
         if (Global.IsAttack)
         {
             Global.IsAttack = false;
+            if (a_Player.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+            {
+                return;
+            }
             a_Player.Play("attack");
+            GameObject newObject = Instantiate(Boom);
+            newObject.name = "+Boom";
+            newObject.transform.SetParent(Booms);
+            newObject.transform.position = Launcher.position;
+            Vector2 newScale = new(transform.localScale.x * 0.2f, transform.localScale.y * 0.2f);
+            newObject.transform.localScale = newScale;
         }
     }
     void Jump()

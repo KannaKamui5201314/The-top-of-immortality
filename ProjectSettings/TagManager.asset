@@ -10,6 +10,8 @@ TagManager:
   - floors
   - SpriteMask
   - Enemy
+  - Enemies
+  - Booms
   layers:
   - Default
   - TransparentFX

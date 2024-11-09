@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     float LoadingSum;
 
     private Transform floors;
+    private Transform Enemies;
 
     void Start()
     {
@@ -29,6 +30,8 @@ public class UIController : MonoBehaviour
         Loading.gameObject.SetActive(true);
 
         floors = GameObject.FindGameObjectWithTag("floors").transform;
+        Enemies = GameObject.FindGameObjectWithTag("Enemies").transform;
+
     }
 
     void Update()
@@ -50,9 +53,9 @@ public class UIController : MonoBehaviour
     {
         if (!isLoaded)
         {
-            if (Global.InitialFloorCount > floors.childCount)
+            if (Global.InitialFloorCount + Global.InitialEnemyCount > floors.childCount + Enemies.childCount )
             {
-                LoadingSum = 100f * floors.childCount / Global.InitialFloorCount;//浮点数在前才能自动转换结果为浮点数
+                LoadingSum = 100f * (floors.childCount + Enemies.childCount) / (Global.InitialFloorCount + Global.InitialEnemyCount);//浮点数在前才能自动转换结果为浮点数
                 //Debug.Log(LoadingSum);
                 LoadingText.text = LoadingSum.ToString() + "%";
             }
