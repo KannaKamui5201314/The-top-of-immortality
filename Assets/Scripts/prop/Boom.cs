@@ -8,21 +8,39 @@ public class Boom : MonoBehaviour
 
     private float moveDirection;
 
+    private long Strength;
+
+    float destroyTimer;
+
     private void Start()
     {
         t_Player = GameObject.FindGameObjectWithTag("Player").transform;
         moveDirection = Mathf.Sign(t_Player.localScale.x);
+        Strength = Player.Strength;
     }
 
     private void Update()
     {
-        transform.Translate(new(moveDirection * Global.BoomSpeed * Time.deltaTime, 0));
+        DestroySelf();
+        transform.Translate(new(moveDirection * Global.BoomSpeed * Time.deltaTime, 0));//移动
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyController>().isHit = true;
+            Debug.Log("打中了敌人");
+            collision.gameObject.GetComponent<EnemyController>().SetHealth(Strength);
+            Destroy(gameObject);
+        }
+    }
+
+    //自爆
+    void DestroySelf()
+    {
+        destroyTimer += Time.deltaTime;
+        if (destroyTimer>1f)
+        {
+            Destroy(gameObject);
         }
     }
 }

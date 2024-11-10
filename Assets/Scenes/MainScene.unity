@@ -306,11 +306,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 902995953}
     m_Modifications:
     - target: {fileID: 1908850870069242641, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261039567284903129, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261039567284903129, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
+      propertyPath: m_Offset.x
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7940696866085366341, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
       propertyPath: m_IsActive
@@ -334,15 +342,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8711184764569554572, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8711184764569554572, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8711184764569554572, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8711184764569554572, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -569,7 +577,7 @@ GameObject:
   - component: {fileID: 102587141}
   m_Layer: 0
   m_Name: prop
-  m_TagString: Untagged
+  m_TagString: prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -872,6 +880,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148517131}
   m_CullTransparentMesh: 1
+--- !u!4 &170498886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8711184764569554572, guid: 6628f70cea4b3d94ca6658c1d2546f63, type: 3}
+  m_PrefabInstance: {fileID: 46941720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &269806426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,7 +2095,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 170498886}
   m_Father: {fileID: 102587140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &926747105
@@ -4312,4 +4326,3 @@ SceneRoots:
   - {fileID: 1137732486}
   - {fileID: 1581167249}
   - {fileID: 102587140}
-  - {fileID: 46941720}

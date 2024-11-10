@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Enemies
   - Booms
+  - prop
   layers:
   - Default
   - TransparentFX
