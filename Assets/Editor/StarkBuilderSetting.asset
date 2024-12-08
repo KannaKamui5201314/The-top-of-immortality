@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1315287583, guid: b68b64a39a7151e47b0e6daeac0cd8cf, type: 3}
+  m_Script: {fileID: 1315287583, guid: 76741459812cc496eb3634fdc0e9cc80, type: 3}
   m_Name: StarkBuilderSetting
   m_EditorClassIdentifier: 
   wasmResourceUrl: http://
-  webGLOutputDir: E:/Unity_program/unity/The top of immortality/build/WebGL
+  webGLOutputDir: E:/Unity_program/unity/The top of immortality/build/WebGL-Douyin
   useByteAudioAPI: 0
   wasmMemorySize: 128
   isWebGL2: 0
@@ -41,10 +41,10 @@ MonoBehaviour:
   NativeWhiteListRegex:
   - com.bytedance.starksdk
   - _Backup~
-  a: 
+  a: tt865bf0e6196ff44b07
   version: 
   autoVersion: 0
-  b: E:\Unity_program\unity\The top of immortality\build\WebGL\webgl_package-20241113_225225.zip
+  b: E:\Unity_program\unity\The top of immortality\build\WebGL-Douyin\webgl_package-20241208_183724.zip
   c: 0
   d: 0
   e: 0

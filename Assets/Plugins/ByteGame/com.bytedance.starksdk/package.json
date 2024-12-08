@@ -1,8 +1,8 @@
 {
     "displayName": "TTSDK",
     "name": "com.bytedance.starksdk",
-    "version": "6.0.6",
-        "description": "TTSDK Plugin",
+    "version": "6.1.1",
+    "description": "TTSDK Plugin\n\n最近更新：\n\n[6.1.0]\n[Bugfix] 修复已知问题\n\n[6.0.9]\n[Bugfix] 修复使用 TTInputOverrideBypass 引起的 SDK 未初始化问题\n[Bugfix] 修复在 IDE 模拟器中重启游戏报错的问题\n\n[6.0.8]​\n[New] 新增游戏版本更新管理器能力\n\n[6.0.5]\n[Bugfix] 修复激励视频广告在 WebGL 下创建后立即播放问题\n\n[6.0.3]\n[Bugfix] 修复 Native 方案激励视频广告播放的回调问题​​\n\n[6.0.2]\n​[Bugfix] 修复Native方案直玩订阅能力不可用问题​\n\n[6.0.1]\n​[Bugfix] TTAssetBundle 优化能力兼容 Addressables 1.19 版本（参考文档：使用 TTAssetBundle 优化内存）​\n\n[6.0.0]\n[New] 升级了 API 的调用方式，由原来的 StarkSDK.API 升级为 TT 的调用形式（参考文档：旧版 StarkSdk API 迁移 TTSDK API 说明）​\n[Feature] 提供了 TTSDK API 升级工具（参考文档：TTSDK API 升级工具）​",
     "keywords": [],
     "category": "Libraries",
     "links": [
@@ -23,6 +23,6 @@
             "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/game-engine/rd-to-SCgame/unity-game-access/ttsdk-api-upgrade-guide"
         }
     ],
-        "unitySinceBuild": "*",
+    "unitySinceBuild": "*",
     "unityUntilBuild": "*"
 }

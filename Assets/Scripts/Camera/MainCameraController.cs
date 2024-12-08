@@ -33,6 +33,7 @@ public class MainCameraController : MonoBehaviour
     {
         if (MainCamera.orthographic)
         {
+            Debug.Log("Screen.height=" + Screen.height);
             MainCamera.orthographicSize = Screen.height / 2 / 100f;
         }
     }

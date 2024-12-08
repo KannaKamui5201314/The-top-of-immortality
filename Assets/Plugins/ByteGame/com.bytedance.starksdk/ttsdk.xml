@@ -4,199 +4,6 @@
         <name>ttsdk</name>
     </assembly>
     <members>
-        <member name="T:bytedance.ttrec.ByteAudioRec">
-            <summary>
-            Unity声音录制
-            </summary>
-        </member>
-        <member name="T:bytedance.ttrec.ByteREC">
-            <summary>
-            Unity层使用的接口
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteREC.StartRecord">
-            <summary>
-            开始录屏
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteREC.StopRecord">
-            <summary>
-            停止录屏
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteREC.EnableVoice">
-            <summary>
-            开启录制游戏声音
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteREC.DisableVoice">
-            <summary>
-            关闭录制游戏声音
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteREC.SetResolution(System.Int32)">
-            <summary>
-            设置录制分辨率
-            </summary>
-        </member>
-        <member name="T:bytedance.ttrec.ByteRECAudioMgr">
-            <summary>
-            Unity层使用的接口
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECAudioMgr.CheckUnityEditorListeners">
-            检查是否有多个ActiveAndEnable AudioListener
-        </member>
-        <member name="T:bytedance.ttrec.ByteRECAudioSample">
-            <summary>
-            Unity声音录制接口
-            </summary>
-        </member>
-        <member name="T:bytedance.ttrec.ByteRECJNI">
-            <summary>
-            Unity层使用的接口
-            </summary>
-        </member>
-        <member name="F:bytedance.ttrec.ByteRECJNI.VERSION">
-            <summary>
-            Unity版本号，每对外升级一次，自增1，详情见
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.UnityRenderEventPtr">
-            <summary>
-            UnityRenderEvent的回调的指针，可以通过
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.RecordBitmap(System.Int32,System.Int32,System.Byte[],System.Int32)">
-            <summary>
-            录制图片
-            </summary>
-            <param name="width"></param>
-            <param name="height"></param>
-            <param name="data"></param>
-            <param name="size"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.RecordTexture(System.Int32)">
-            <summary>
-            录制纹理
-            </summary>
-            <param name="textureId"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.SendApplicationPauseStatus(System.Boolean,System.Int64)">
-            <summary>
-            传递Unity前后台切换消息
-            </summary>
-            <param name="json"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.RecordVoice(System.Int32,System.Single[],System.Int32)">
-            <summary>
-            录音,传递PCM的float数组
-            </summary>
-            <param name="channel"></param>
-            <param name="pcm"></param>
-            <param name="length"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.RecordVoiceByte(System.Int32,System.Byte[],System.Int32)">
-            <summary>
-            录音，传递PCM的byte数组
-            </summary>
-            <param name="channels"></param>
-            <param name="pcm"></param>
-            <param name="length"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.RecordVoiceConfig(System.String)">
-            <summary>
-            传递录音的配置参数，JSON格式
-            </summary>
-            <param name="json"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.JNIDeAttachCurrentThread">
-            <summary>
-            通知JNI DeAttach 当前线程，不然会引起crash
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.SendAudioTypeToNative(System.Int32)">
-            <summary>
-            设置使用的音频引擎类型：0-unity，1-wwise plugin, 2-wwise mix
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.StartRecord(System.String)">
-            <summary>
-            开始录屏
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.StopRecord">
-            <summary>
-            停止录屏
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.EnableVoice">
-            <summary>
-            开启录制游戏声音
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRECJNI.DisableVoice">
-            <summary>
-            关闭录制游戏声音
-            </summary>
-        </member>
-        <member name="P:bytedance.ttrec.ByteRecImpl.SamplingIntervalMs">
-            <summary>
-            声音采样间隔，单位毫秒
-            </summary>
-        </member>
-        <member name="P:bytedance.ttrec.ByteRecImpl.NeedConvertToByteArray">
-            <summary>
-            是否需要将PCM从float数组转为byte数组
-            </summary>
-        </member>
-        <member name="P:bytedance.ttrec.ByteRecImpl.Recording">
-            <summary>
-            是否在录制中
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRecImpl.NativeStopRecord">
-            <summary>
-            提供给Java端通过UnityPlayer.UnitySendMessage("ByteREC","NativeStopRecord","");来停止录屏
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRecImpl.NativeStartRecord">
-            <summary>
-            提供给Java端通过UnityPlayer.UnitySendMessage("ByteREC","NativeStartRecord","");来启动录屏
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRecImpl.StartRecord(System.String)">
-            <summary>
-            提供给Java端通过UnityPlayer.UnitySendMessage("ByteREC","StartRecord","");来触发录制
-            </summary>
-            <param name="msg"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRecImpl.NativeRecordVoice(System.String)">
-            <summary>
-            提供给Java端通过UnityPlayer.UnitySendMessage("ByteREC","NativeRecordVoice","");来设置是否录音
-            </summary>
-            <param name="msg"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRecImpl.NativeSetUnityConvertPCM(System.String)">
-            <summary>
-            设置是否在Unity测转换PCM
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="M:bytedance.ttrec.ByteRecImpl.SetRecordRT(UnityEngine.RenderTexture)">
-            <summary>
-            支持外部注入RT进行录制
-            </summary>
-        </member>
-        <member name="T:bytedance.ttrec.ByteUnityAudioSample">
-            <summary>
-            Unity声音录制
-            </summary>
-        </member>
-        <member name="M:bytedance.ttrec.ByteUnityAudioSample.PutArrayToList(System.Single[],System.Collections.Generic.List{System.Single})">
-            将数组添加到List里。
-        </member>
         <member name="T:StarkSDKSpace.StarkAudioManager">
             <summary>
             本地音频播放管理器
@@ -3549,6 +3356,236 @@
               <para>Writes all modified preferences to disk.</para>
             </summary>
         </member>
+        <member name="T:bytedance.ttrec.ByteAudioRec">
+            <summary>
+            Unity声音录制
+            </summary>
+        </member>
+        <member name="T:bytedance.ttrec.ByteREC">
+            <summary>
+            Unity层使用的接口
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteREC.StartRecord">
+            <summary>
+            开始录屏
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteREC.StopRecord">
+            <summary>
+            停止录屏
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteREC.EnableVoice">
+            <summary>
+            开启录制游戏声音
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteREC.DisableVoice">
+            <summary>
+            关闭录制游戏声音
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteREC.SetResolution(System.Int32)">
+            <summary>
+            设置录制分辨率
+            </summary>
+        </member>
+        <member name="T:bytedance.ttrec.ByteRECAudioMgr">
+            <summary>
+            Unity层使用的接口
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECAudioMgr.CheckUnityEditorListeners">
+            检查是否有多个ActiveAndEnable AudioListener
+        </member>
+        <member name="T:bytedance.ttrec.ByteRECAudioSample">
+            <summary>
+            Unity声音录制接口
+            </summary>
+        </member>
+        <member name="T:bytedance.ttrec.ByteRECJNI">
+            <summary>
+            Unity层使用的接口
+            </summary>
+        </member>
+        <member name="F:bytedance.ttrec.ByteRECJNI.VERSION">
+            <summary>
+            Unity版本号，每对外升级一次，自增1，详情见
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.UnityRenderEventPtr">
+            <summary>
+            UnityRenderEvent的回调的指针，可以通过
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.RecordBitmap(System.Int32,System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            录制图片
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="data"></param>
+            <param name="size"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.RecordTexture(System.Int32)">
+            <summary>
+            录制纹理
+            </summary>
+            <param name="textureId"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.SendApplicationPauseStatus(System.Boolean,System.Int64)">
+            <summary>
+            传递Unity前后台切换消息
+            </summary>
+            <param name="json"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.RecordVoice(System.Int32,System.Single[],System.Int32)">
+            <summary>
+            录音,传递PCM的float数组
+            </summary>
+            <param name="channel"></param>
+            <param name="pcm"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.RecordVoiceByte(System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            录音，传递PCM的byte数组
+            </summary>
+            <param name="channels"></param>
+            <param name="pcm"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.RecordVoiceConfig(System.String)">
+            <summary>
+            传递录音的配置参数，JSON格式
+            </summary>
+            <param name="json"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.JNIDeAttachCurrentThread">
+            <summary>
+            通知JNI DeAttach 当前线程，不然会引起crash
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.SendAudioTypeToNative(System.Int32)">
+            <summary>
+            设置使用的音频引擎类型：0-unity，1-wwise plugin, 2-wwise mix
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.StartRecord(System.String)">
+            <summary>
+            开始录屏
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.StopRecord">
+            <summary>
+            停止录屏
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.EnableVoice">
+            <summary>
+            开启录制游戏声音
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRECJNI.DisableVoice">
+            <summary>
+            关闭录制游戏声音
+            </summary>
+        </member>
+        <member name="P:bytedance.ttrec.ByteRecImpl.SamplingIntervalMs">
+            <summary>
+            声音采样间隔，单位毫秒
+            </summary>
+        </member>
+        <member name="P:bytedance.ttrec.ByteRecImpl.NeedConvertToByteArray">
+            <summary>
+            是否需要将PCM从float数组转为byte数组
+            </summary>
+        </member>
+        <member name="P:bytedance.ttrec.ByteRecImpl.Recording">
+            <summary>
+            是否在录制中
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRecImpl.NativeStopRecord">
+            <summary>
+            提供给Java端通过UnityPlayer.UnitySendMessage("ByteREC","NativeStopRecord","");来停止录屏
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRecImpl.NativeStartRecord">
+            <summary>
+            提供给Java端通过UnityPlayer.UnitySendMessage("ByteREC","NativeStartRecord","");来启动录屏
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRecImpl.StartRecord(System.String)">
+            <summary>
+            提供给Java端通过UnityPlayer.UnitySendMessage("ByteREC","StartRecord","");来触发录制
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRecImpl.NativeRecordVoice(System.String)">
+            <summary>
+            提供给Java端通过UnityPlayer.UnitySendMessage("ByteREC","NativeRecordVoice","");来设置是否录音
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRecImpl.NativeSetUnityConvertPCM(System.String)">
+            <summary>
+            设置是否在Unity测转换PCM
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:bytedance.ttrec.ByteRecImpl.SetRecordRT(UnityEngine.RenderTexture)">
+            <summary>
+            支持外部注入RT进行录制
+            </summary>
+        </member>
+        <member name="T:bytedance.ttrec.ByteUnityAudioSample">
+            <summary>
+            Unity声音录制
+            </summary>
+        </member>
+        <member name="M:bytedance.ttrec.ByteUnityAudioSample.PutArrayToList(System.Single[],System.Collections.Generic.List{System.Single})">
+            将数组添加到List里。
+        </member>
+        <member name="F:TTSDK.ErrorType.Unknown">
+            <summary>
+            未知错误
+            </summary>
+        </member>
+        <member name="F:TTSDK.ErrorType.D">
+            <summary>
+            D 表示 Developer 开发者逻辑导致的错误，例如参数错误，订单重复支付等
+            </summary>
+        </member>
+        <member name="F:TTSDK.ErrorType.U">
+            <summary>
+            U 表示 User 用户操作导致的错误，例如用户未登录，用户未授权等
+            </summary>
+        </member>
+        <member name="F:TTSDK.ErrorType.F">
+            <summary>
+            F 表示 Framework 内部框架错误 ，例如网络错误，参数错误等
+            </summary>
+        </member>
+        <member name="F:TTSDK.ErrorType.I">
+            <summary>
+            I 表示 Information 用户使用过程中产生的过程信息，例如用户未登录，用户未授权等
+            </summary>
+        </member>
+        <member name="T:TTSDK.ErrorInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:TTSDK.ErrorTypeUtils.Parse(System.String)">
+            <summary>
+            解析从字符串到 ErrorType 枚举类型。
+            </summary>
+            <param name="s">D, U, F, I 中的一种</param>
+            <returns></returns>
+        </member>
         <member name="M:TTSDK.TTAPIMock.#ctor">
             <summary>
             创建mock模块
@@ -3994,6 +4031,14 @@
             <summary>
             TTSDK 运行在错误的环境中
             </summary>
+        </member>
+        <member name="M:TTSDK.TTSDKInner.ConvertLaunchEnum(TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            入口枚举 https://bytedance.feishu.cn/sheets/xChZZJiYfuC19iYtOv50yf#63rY26
+            https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/framework/scene-value/
+            </summary>
+            <param name="sceneData"></param>
+            <returns></returns>
         </member>
         <member name="M:TTSDK.TTSDKInner.ConvertHostIdEnum(System.Int32)">
             <summary>
@@ -5523,11 +5568,14 @@
             接口说明：https://bytedance.feishu.cn/docx/doxcnUkE86LjFTFdTJREIEGT9bb
             </summary>
             <param name="options"> JsonData内容如下 
-            buyQuantity     number  必填   金币购买数量，金币数量必须满足：金币数量*金币单价 = 限定价格等级（详见下方 buyQuantity 限制说明。开发者可以在字节小游戏平台的“支付”tab 设置游戏币单价）
+            buyQuantity     number  必填（道具直购场景除外）金币购买数量，金币数量必须满足：金币数量*金币单价 = 限定价格等级（详见下方 buyQuantity 限制说明。开发者可以在字节小游戏平台的“支付”tab 设置游戏币单价）
             customId        string  必填   游戏开发者自定义的唯一订单号，订单支付成功后通过服务端支付结果回调回传
             currencyType    string  非必填 币种, 目前仅为"CNY"
             zoneId	        string  非必填 游戏服务区 id，默认值为1，开发者自定义。游戏不分大区则默认填写"1"。如果应用支持多角色，则角色 ID 接在分区 ID 后，用"_"连接
             extraInfo	    string  非必填 游戏开发者自定义的其他信息，订单支付成功后通过服务端支付结果回调回传。字符串长度最大不能超过 256。（强烈建议传入）
+            goodType        number  非必填（道具直购场景必填） 默认游戏币。 游戏币：0 | 1，道具直购：2。若goodType为道具直购场景，不可传buyQuantity
+            orderAmount     number  非必填（道具直购场景必填） 道具价格，人民币，单位分
+            goodName        string  非必填 道具名称
             </param>
             <param name="success"> 打开客服页成功 </param>
             <param name="failed"> 打开客服聊天页回调，参数为是否成功，true表示成功，false表示失败 </param>
@@ -5722,6 +5770,12 @@
             <summary>
             获取直播间管理器对象
             </summary>
+        </member>
+        <member name="M:TTSDK.ITTAPI.GetUpdateManager">
+            <summary>
+            获取小游戏管理更新对象
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:TTSDK.OnAccelerometerListener.OnAccelerometerChangedDelegate">
             <summary>
@@ -6768,6 +6822,96 @@
             </summary>
             <param name="action">bool = true获取成功，value为内容，反则关注错误信息</param>
         </member>
+        <member name="F:TTSDK.GiftResult.GiftId">
+            <summary>
+            礼包类型id
+            </summary>
+        </member>
+        <member name="F:TTSDK.GiftResult.GiftCode">
+            <summary>
+            用户在获取到礼包兑换码进入游戏后，发起核销兑换码的动作，开发者需要使用本接口校验礼包兑换码的有效性。校验通过后才可以发放对应礼包
+            </summary>
+        </member>
+        <member name="F:TTSDK.GiftResult.Status">
+            <summary>
+            礼包状态，init：待使用，finish：已核销，cancel 已取消
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerSuccessResult.ErrMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerSuccessResult.PayTime">
+            <summary>
+            支付时间
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerSuccessResult.Gift">
+            <summary>
+            礼包详情（若为礼包购买）
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.BuyQuantity">
+            <summary>
+            必填（道具直购场景除外） 金币购买数量，金币数量必须满足：金币数量*金币单价 = 限定价格等级（详见下方 buyQuantity 限制说明。开发者可以在字节小游戏平台的“支付”tab 设置游戏币单价）
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.CustomId">
+            <summary>
+            必填   游戏开发者自定义的唯一订单号，订单支付成功后通过服务端支付结果回调回传
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.CurrencyType">
+            <summary>
+            非必填 币种, 目前仅为"CNY"
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.ZoneId">
+            <summary>
+            非必填 游戏服务区 id，默认值为1，开发者自定义。游戏不分大区则默认填写"1"。如果应用支持多角色，则角色 ID 接在分区 ID 后，用"_"连接
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.ExtraInfo">
+            <summary>
+            非必填 游戏开发者自定义的其他信息，订单支付成功后通过服务端支付结果回调回传。字符串长度最大不能超过 256。（强烈建议传入）
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.GoodType">
+            <summary>
+            非必填（道具直购场景必填） 默认游戏币。 游戏币：0 | 1，道具直购：2。若goodType为道具直购场景，不可传buyQuantity
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.OrderAmount">
+            <summary>
+            非必填（道具直购场景必填） 道具价格，人民币，单位分  
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.GoodName">
+            <summary>
+            非必填 道具名称     
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.GoodsId">
+            <summary>
+            非必填 （礼包场景必填）礼包Id
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.Success">
+            <summary>
+            OpenAwemeCustomer 成功回调
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.Fail">
+            <summary>
+            OpenAwemeCustomer 失败回调
+            </summary>
+        </member>
+        <member name="F:TTSDK.OpenAwemeCustomerServiceParam.Complete">
+            <summary>
+            接口调用完成回调
+            </summary>
+        </member>
         <member name="M:TTSDK.TTDeviceMotion.StartDeviceMotionListening(TTSDK.TTDeviceMotion.Interval,TTSDK.TTDeviceMotion.MotionCallback)">
             <summary>
             开始监听设备方向变化
@@ -7631,6 +7775,116 @@
             供Java侧调用，获取保存到Unity本地的互跳信息
             </summary>
         </member>
+        <member name="F:TTSDK.SuccessResult.ErrMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentSuccessResult.ErrMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentSuccessResult.PayTime">
+            <summary>
+            支付时间
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentSuccessResult.Gift">
+            <summary>
+            礼包详情（若为礼包购买）
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.Mode">
+            <summary>
+            必填  支付的类型, 目前仅为"game"
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.Env">
+            <summary>
+            必填  环境配置，目前合法值仅为"0"
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.CurrencyType">
+            <summary>
+            必填  币种, 目前仅为"CNY"
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.Platform">
+            <summary>
+            必填  申请接入时的平台，目前仅为"android"
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.BuyQuantity">
+            <summary>
+            必填（道具直购场景除外）金币购买数量
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.ZoneId">
+            <summary>
+            非必填 游戏服务区 id，
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.CustomId">
+            <summary>
+            必填  游戏开发者自定义的唯一订单号，订单支付成功后通过服务端支付结果回调回传
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.ExtraInfo">
+            <summary>
+            非必填 游戏开发者自定义的其他信息，订单支付成功后通过服务端支付结果回调回传。字符串长度最大不能超过 256
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.GoodType">
+            <summary>
+            非必填（道具直购场景必填）默认游戏币。goodType 与 buyQuantity 任一传递即，可游戏币：0 或 1，道具直购：2
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.OrderAmount">
+            <summary>
+            非必填（道具直购场景必填）道具价格，人民币，单位分
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.GoodName">
+            <summary>
+            非必填（道具直购场景必填）道具名称
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.GoodsId">
+            <summary>
+            非必填 （礼包场景必填）礼包Id
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.Success">
+            <summary>
+            支付成功回调
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.Fail">
+            <summary>
+            支付失败回调
+            </summary>
+        </member>
+        <member name="F:TTSDK.RequestGamePaymentParam.Complete">
+            <summary>
+            接口调用完成回调
+            </summary>
+        </member>
+        <member name="F:TTSDK.BuyGiftResult.GiftId">
+            <summary>
+            礼包 id
+            </summary>
+        </member>
+        <member name="F:TTSDK.BuyGiftResult.Name">
+            <summary>
+            礼包名称
+            </summary>
+        </member>
+        <member name="F:TTSDK.BuyGiftResult.OrderAmount">
+            <summary>
+            礼包价格，单位是分
+            </summary>
+        </member>
         <member name="F:TTSDK.TTPayService.ERR_CODE_NOT_IN_UC_ENV">
             <summary>
             非uc环境下运行
@@ -7753,14 +8007,17 @@
             <summary>
             小游戏平台的支付接口
             接口文档 https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/payment/tt-request-game-payment
-            mode string 支付的类型, 目前仅为"game"
-            env int 环境配置，目前合法值仅为"0"
-            currencyType string 币种, 目前仅为"CNY"
-            platform string  申请接入时的平台，目前仅为"android"
-            buyQuantity int 金币购买数量
-            zoneId 选填 string 游戏服务区 id，
-            customId 选填 string 游戏开发者自定义的唯一订单号，订单支付成功后通过服务端支付结果回调回传
-            extraInfo string 游戏开发者自定义的其他信息，订单支付成功后通过服务端支付结果回调回传。字符串长度最大不能超过 256
+            mode            string  必填  支付的类型, 目前仅为"game"
+            env             int     必填  环境配置，目前合法值仅为"0"
+            currencyType    string  必填  币种, 目前仅为"CNY"
+            platform        string  必填  申请接入时的平台，目前仅为"android"
+            buyQuantity     int     必填（道具直购场景除外）金币购买数量
+            zoneId          string  非必填 游戏服务区 id，
+            customId        string  必填  游戏开发者自定义的唯一订单号，订单支付成功后通过服务端支付结果回调回传
+            extraInfo       string  非必填 游戏开发者自定义的其他信息，订单支付成功后通过服务端支付结果回调回传。字符串长度最大不能超过 256
+            goodType        int     非必填（道具直购场景必填）默认游戏币。goodType 与 buyQuantity 任一传递即，可游戏币：0 或 1，道具直购：2
+            orderAmount     int     非必填（道具直购场景必填）道具价格，人民币，单位分
+            goodName        string  非必填（道具直购场景必填）道具名称
             </summary>
         </member>
         <member name="T:TTSDK.TTPlayerPrefs">
@@ -8110,6 +8367,135 @@
             <param name="complete">接口调用结束的回调函数（调用成功、失败都会执行）</param>
             <param name="error">接口调用失败的回调函数</param>
         </member>
+        <member name="T:TTSDK.GetUnionGroupInfoSuccessResult">
+            <summary>
+            获取绑定群信息成功结果
+            </summary>
+        </member>
+        <member name="F:TTSDK.GetUnionGroupInfoSuccessResult.BindStatus">
+            <summary>
+            目前公会的绑定状态，true 公会已绑定，false 公会未绑定
+            </summary>
+        </member>
+        <member name="T:TTSDK.UnbindUnionGroupSuccessResult">
+            <summary>
+            解除绑定成功结果
+            </summary>
+        </member>
+        <member name="T:TTSDK.JoinUnionGroupSuccessResult">
+            <summary>
+            添加公会群成功结果
+            </summary>
+        </member>
+        <member name="T:TTSDK.GetUnionGroupInfoSuccessCallback">
+            <summary>
+            获取绑定群信息成功回调
+            </summary>
+        </member>
+        <member name="T:TTSDK.UnionGroupParam">
+            <summary>
+            公会群通用参数
+            </summary>
+        </member>
+        <member name="F:TTSDK.UnionGroupParam.UnionId">
+            <summary>
+            查询绑定群信息的公会 ID，格式限制为，长度不超过 30
+            </summary>
+        </member>
+        <member name="F:TTSDK.UnionGroupParam.Fail">
+            <summary>
+            接口调用失败的回调函数
+            </summary>
+        </member>
+        <member name="F:TTSDK.UnionGroupParam.Complete">
+            <summary>
+            接口调用结束的回调函数（调用成功、失败都会执行）
+            </summary>
+        </member>
+        <member name="T:TTSDK.GetUnionGroupInfoParam">
+            <summary>
+            获取绑定群信息参数
+            </summary>
+        </member>
+        <member name="F:TTSDK.GetUnionGroupInfoParam.Success">
+            <summary>
+            接口调用成功的回调函数
+            </summary>
+        </member>
+        <member name="T:TTSDK.BindUnionGroupSuccessResult">
+            <summary>
+            绑定公开群成功结果
+            </summary>
+        </member>
+        <member name="F:TTSDK.BindUnionGroupSuccessResult.BindResult">
+            <summary>
+            是否完成绑定公开群，true 完成绑定，false 未绑定
+            </summary>
+        </member>
+        <member name="T:TTSDK.BindUnionGroupSuccessCallback">
+            <summary>
+            绑定公开群成功回调
+            </summary>
+        </member>
+        <member name="T:TTSDK.BindUnionGroupParam">
+            <summary>
+            绑定公开群成功参数
+            </summary>
+        </member>
+        <member name="F:TTSDK.BindUnionGroupParam.Success">
+            <summary>
+            接口调用成功的回调函数
+            </summary>
+        </member>
+        <member name="T:TTSDK.UnbindUnionGroupSuccessCallback">
+            <summary>
+            解除绑定成功回调
+            </summary>
+        </member>
+        <member name="F:TTSDK.UnbindUnionGroupParam.Success">
+            <summary>
+            接口调用成功的回调函数
+            </summary>
+        </member>
+        <member name="T:TTSDK.JoinUnionGroupSuccessCallback">
+            <summary>
+            添加工会群成功回调
+            </summary>
+        </member>
+        <member name="T:TTSDK.JoinUnionGroupParam">
+            <summary>
+            添加工会群参数
+            </summary>
+        </member>
+        <member name="F:TTSDK.JoinUnionGroupParam.Success">
+            <summary>
+            接口调用成功的回调函数
+            </summary>
+        </member>
+        <member name="M:TTSDK.TTUpdateManager.OnCheckForUpdate(TTSDK.OnCheckForUpdateCallback)">
+            <summary>
+            当向字节小程序后台请求完新版本信息，会进行回调。
+            </summary>
+            <param name="callback"></param>
+        </member>
+        <member name="M:TTSDK.TTUpdateManager.OnUpdateReady(TTSDK.OnUpdateReadyCallback)">
+            <summary>
+            当新版本下载完成，会进行回调。
+            </summary>
+            <param name="callback">当新版本下载完成后进行回调的函数</param>
+        </member>
+        <member name="M:TTSDK.TTUpdateManager.OnUpdateFailed(TTSDK.OnUpdateFailedCallback)">
+            <summary>
+            当新版本下载失败，会进行回调。
+            </summary>
+            <param name="callback">当新版本下载失败时回调的函数</param>
+        </member>
+        <member name="M:TTSDK.TTUpdateManager.ApplyUpdate(TTSDK.ApplyUpdateParams)">
+            <summary>
+            当新版本下载完成，调用该方法会强制当前小游戏应用上新版本并重启。
+            </summary>
+            <param name="applyUpdateParams"></param>
+        </member>
         <member name="T:TTSDK.AccountMockModule">
             <summary>
             广告模块的mock层
@@ -8287,11 +8673,28 @@
             <param name="methodName">开关细化到某一 methodName </param>
             <returns></returns>
         </member>
-        <member name="M:TTSDK.TTNativeCallSettings.InitNativeInfo(TTSDK.UNBridgeLib.LitJson.JsonData)">
+        <member name="M:TTSDK.TTNativeCallSettings.InitSettings">
             <summary>
             初始化 Unity native 小游戏调用链路的设置
             </summary>
-            <param name="param">调用设置</param>
+        </member>
+        <member name="M:TTSDK.TTNativeCallSettings.Report">
+            <summary>
+            上报 native JS 新链路的调用情况
+            </summary>
+        </member>
+        <member name="M:TTSDK.TTNativeCallSettings.LoadSettingsContent">
+            <summary>
+            加载端上写入的 native_settings 配置
+            https://cloud.bytedance.net/appSettings-v2/detail/config/193882/detail/status?x-resource-account=public
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.TTNativeCallSettings.InitNativeInfo(System.String)">
+            <summary>
+            初始化 Unity native 小游戏调用链路的设置
+            </summary>
+            <param name="jsonData">调用设置</param>
         </member>
         <member name="T:TTSDK.BGGameApi.OnLoginSuccessCallback">
             <summary>
@@ -8718,11 +9121,15 @@
             接口说明：https://bytedance.feishu.cn/docx/doxcnUkE86LjFTFdTJREIEGT9bb
             </summary>
             <param name="options"> JsonData内容如下 
-            buyQuantity     number  必填   金币购买数量，金币数量必须满足：金币数量*金币单价 = 限定价格等级（详见下方 buyQuantity 限制说明。开发者可以在字节小游戏平台的“支付”tab 设置游戏币单价）
+            buyQuantity     int  必填   金币购买数量，金币数量必须满足：金币数量*金币单价 = 限定价格等级（详见下方 buyQuantity 限制说明。开发者可以在字节小游戏平台的“支付”tab 设置游戏币单价）
             customId        string  必填   游戏开发者自定义的唯一订单号，订单支付成功后通过服务端支付结果回调回传
             currencyType    string  非必填 币种, 目前仅为"CNY"
             zoneId	        string  非必填 游戏服务区 id，默认值为1，开发者自定义。游戏不分大区则默认填写"1"。如果应用支持多角色，则角色 ID 接在分区 ID 后，用"_"连接
             extraInfo	    string  非必填 游戏开发者自定义的其他信息，订单支付成功后通过服务端支付结果回调回传。字符串长度最大不能超过 256。（强烈建议传入）
+            goodType        int  非必填（道具直购场景必填） 默认游戏币。 游戏币：0 | 1，道具直购：2。若goodType为道具直购场景，不可传buyQuantity
+            orderAmount     int  非必填（道具直购场景必填） 道具价格，人民币，单位分
+            goodName        string  非必填 道具名称
+            goodsId         string  非必填 （礼包场景必填）礼包Id
             </param>
             <param name="success"> 打开客服页成功 </param>
             <param name="failed"> 打开客服聊天页回调，参数为是否成功，true表示成功，false表示失败 </param>
@@ -8780,7 +9187,7 @@
             <param name="closeCallback">广告视频关闭回调.</param>
             <param name="loadedCallback">广告加载回调.</param>
         </member>
-        <member name="M:TTSDK.TT.CreateRewardedVideoAd(System.String,System.Action{System.Boolean,System.Int32},System.Action{System.Int32,System.String},TTSDK.TTVideoAdCallback,System.Boolean,System.String[],System.Int32,System.Boolean)">
+        <member name="M:TTSDK.TT.CreateRewardedVideoAd(System.String,System.Action{System.Boolean,System.Int32},System.Action{System.Int32,System.String},System.Boolean,System.String[],System.Int32,System.Boolean)">
             <summary>
             创建激励视频广告，在广告未加载时会发起异步请求，弱网情况下会进行重试。失败会调用errCallback
             激励视频广告只支持一个实例，申请多个激励视频广告位是无效的
@@ -8795,12 +9202,17 @@
             <param name="videoAdId">广告aid.</param>
             <param name="closeCallback">视频广告关闭回调，参数含义 IsComplete,表明广告是否播放完成.</param>
             <param name="errCallback">视频广告错误回调，参数含义 errCode, errMsg 表明错误码和错误描述.</param>
-            <param name="videoAdLoadCallback">视频广告详细过程回调，一般可以不关注.</param>
             /// 再得添加 https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/open-capacity/ads/rewardagainintroduce
             <param name="multiton">是否开启再得广告模式（只支持安卓系统的抖音和抖音极速版）</param>
             <param name="multitonRewardMsg">再得广告的奖励文案，玩家每看完一个广告都会展示，如【再看1个获得xx】xx就multitonRewardMsg中的文案，按顺序依次展示，单个文案最大长度为 7,multiton为true时必填</param>
             <param name="multitonRewardTime">额外观看广告的次数，合法的数据范围为1-4，multiton为true时必填</param>
             <param name="progressTip">是否开启进度提醒，开启时广告文案为【再看N个获得xx】，关闭时为【 再看1个获得xx】。N表示玩家当前还需额外观看广告的次数。</param>
+        </member>
+        <member name="M:TTSDK.TT.CreateRewardedVideoAd(System.String,System.Action{System.Boolean,System.Int32},System.Action{System.Int32,System.String},TTSDK.TTVideoAdCallback,System.Boolean,System.String[],System.Int32,System.Boolean)">
+            <summary>
+            创建激励视频广告
+            注意：此方法已经废弃，请使用无 videoAdLoadCallback 参数版本的 CreateRewardedVideoAd 方法
+            </summary>
         </member>
         <member name="M:TTSDK.TT.ShowVideoAdWithId(System.String,System.Boolean,System.String[],System.Int32,System.Boolean,System.Action{System.Boolean,System.Int32},System.Action{System.Int32,System.String})">
             <summary>
@@ -9007,14 +9419,29 @@
             <summary>
             小游戏平台的支付接口
             接口文档 https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/payment/tt-request-game-payment
-            mode string 支付的类型, 目前仅为"game"
-            env int 环境配置，目前合法值仅为"0"
-            currencyType string 币种, 目前仅为"CNY"
-            platform string  申请接入时的平台，目前仅为"android"
-            buyQuantity int 金币购买数量
-            zoneId 选填 string 游戏服务区 id，
-            customId 选填 string 游戏开发者自定义的唯一订单号，订单支付成功后通过服务端支付结果回调回传
-            extraInfo string 游戏开发者自定义的其他信息，订单支付成功后通过服务端支付结果回调回传。字符串长度最大不能超过 256
+            mode            string  必填  支付的类型, 目前仅为"game"
+            env             int     必填  环境配置，目前合法值仅为"0"
+            currencyType    string  必填  币种, 目前仅为"CNY"
+            platform        string  必填  申请接入时的平台，目前仅为"android"
+            buyQuantity     number  必填（道具直购场景除外）金币购买数量
+            zoneId          string  非必填 游戏服务区 id，
+            customId        string  必填  游戏开发者自定义的唯一订单号，订单支付成功后通过服务端支付结果回调回传
+            extraInfo       string  非必填 游戏开发者自定义的其他信息，订单支付成功后通过服务端支付结果回调回传。字符串长度最大不能超过 256
+            goodType        number  非必填（道具直购场景必填）默认游戏币。goodType 与 buyQuantity 任一传递即，可游戏币：0 或 1，道具直购：2
+            orderAmount     number  非必填（道具直购场景必填）道具价格，人民币，单位分
+            goodName        string  非必填（道具直购场景必填）道具名称
+            goodsId          string  非必填 （礼包场景必填）礼包Id
+            </summary>
+        </member>
+        <member name="M:TTSDK.TT.RequestGamePayment(TTSDK.RequestGamePaymentParam)">
+            <summary>
+            小游戏平台的支付接口
+            接口文档 https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/payment/tt-request-game-payment
+            </summary>
+        </member>
+        <member name="M:TTSDK.TT.OnBuyGift(TTSDK.BuyGiftCallback)">
+            <summary>
+            监听到用户打开推送的付费礼包并点击购买时触发事件回调。
             </summary>
         </member>
         <member name="M:TTSDK.TT.OpenAwemeUserProfile(System.Action,System.Action{System.Int32,System.String},System.Boolean)">
@@ -9639,6 +10066,32 @@
             </summary>
             <returns>是否是容灾启动</returns>
         </member>
+        <member name="M:TTSDK.TT.GetUpdateManager">
+            <summary>
+            获取小游戏管理更新对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.TT.GetUnionGroupInfo(TTSDK.GetUnionGroupInfoParam)">
+            <summary>
+            获取公会绑定群信息
+            </summary>
+        </member>
+        <member name="M:TTSDK.TT.BindUnionGroup(TTSDK.BindUnionGroupParam)">
+            <summary>
+            给指定公会绑定公开群
+            </summary>
+        </member>
+        <member name="M:TTSDK.TT.UnbindUnionGroup(TTSDK.UnbindUnionGroupParam)">
+            <summary>
+            解除公会和公开群的绑定关系
+            </summary>
+        </member>
+        <member name="M:TTSDK.TT.JoinUnionGroup(TTSDK.JoinUnionGroupParam)">
+            <summary>
+            加入工会群聊
+            </summary>
+        </member>
         <member name="T:TTSDK.TTInputOverrideBypass">
              <summary>
              触控事件适配
@@ -9773,6 +10226,741 @@
             <summary>
             移除所有已经结束的触控点
             </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.AndroidCallJsUtils">
+            <summary>
+            AndroidCallJs的通讯接口
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.Init">
+            <summary>
+            确保在主线程执行初始化。
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.SendEventNative(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            发送消息到Native
+            </summary>
+            <param name="target"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.CallNative(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+             异步Call通讯
+             </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.CallNative(System.String)">
+            <summary>
+            异步Call通讯，确保调用在主线程执行
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.CallNativeSync(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+             <summary>
+             同步Call通讯
+             </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.CallNativeSync(System.String)">
+            <summary>
+            同步Call通讯
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.NativeHasAPI(System.String)">
+            <summary>
+            查询h5是否支持某个接口
+            </summary>
+            <param name="apiName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.MixCall(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            混合Call通讯，确保调用在主线程执行
+            </summary>
+            <param name="target">目标API接口</param>
+            <param name="param">参数</param>
+            <param name="callbackId">回调ID</param>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.AndroidUtils">
+            <summary>
+            处理Android通讯的工具类
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.Init">
+            <summary>
+            确保在主线程执行初始化。
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.SendEventNative(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            发送消息到Native
+            </summary>
+            <param name="target"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.CallNative(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+             异步Call通讯
+             </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.MixCall(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            混合Call通讯，调用直接返回一段String的数据，同时会有回调。
+            </summary>
+            <param name="target">目标API接口</param>
+            <param name="param">参数</param>
+            <param name="callbackId">回调ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.CallNative(System.String)">
+            <summary>
+            异步Call通讯
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.CallNativeSync(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+             <summary>
+             同步Call通讯
+             </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.CallNativeSync(System.String)">
+            <summary>
+            同步Call通讯
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.HasNativeAPI(System.String)">
+            <summary>
+            查询Native层是否支持某个API
+            </summary>
+            <param name="apiName">接口名</param>
+            <returns></returns>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.BridgeAPI">
+            <summary>
+            BridgeAPI的包装类
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.OnCallBridgeAPI">
+            <summary>
+            BridgeAPI的委托
+            </summary>
+            <param name="context"></param>
+            <param name="para"></param>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.BridgeCallBack">
+            <summary>
+            回调接口
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeCallBack.AddTime">
+            <summary>
+            回调被添加的事件,ns
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeCallBack.TimeoutTime">
+            <summary>
+            默认Call超时,默认使用通用的超时，10秒
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.OnSuccessDelegate">
+            <summary>
+            回调成功
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.OnFailedDelegate">
+            <summary>
+            回调失败
+            </summary>
+            <param name="code">失败码</param>
+            <param name="failMsg">失败原因</param>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.OnTimeoutDelegate">
+            <summary>
+            超时
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.FailedDelegate">
+            <summary>
+            失败回调，https://bytedance.larkoffice.com/docx/PPaodkE5docWC3xqYJuc5IPJnRe 新错误码规范
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.BridgeCore">
+            <summary>
+            UBridge的内部实现
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.TIMEOUT_TIME">
+            <summary>
+            超时时间
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.SUCCESS">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ERROR_UNSUPPORT">
+            <summary>
+            接口未支持
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ERROR_NOT_SUPPORT_SYNC">
+            <summary>
+            接口不支持异步调用
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ERROR_LACK_PARAM">
+            <summary>
+            缺少参数
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ERROR_NOT_SUPPORT_ASYN">
+            <summary>
+            接口不支持同步调用
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.CallbackMap">
+            <summary>
+            以callback_id为key维护回调。
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.EventMap">
+            <summary>
+            以接口名为key，维护回调
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ApiMap">
+            <summary>
+             Unity侧以接口的形式实现的API,比委托优先
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.BridgeDelegateMap">
+            <summary>
+            Unity侧以委托的形式实现的API
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.LocalEventList">
+            <summary>
+            本地注册的事件列表
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.RemoteEventList">
+            <summary>
+            Native端注册的事件列表
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.Timer">
+            <summary>
+            超时定时器
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.IsTimerStarted">
+            <summary>
+            定时器是否已经启动，避免重复启动；
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeCore.MaxTimeoutTime">
+            <summary>
+            超时时间，默认10秒
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.StartTimer">
+            <summary>
+            启动超时定时器
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.StopTimer">
+            <summary>
+            停止超时定时器
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.setCallBackTimeout(System.Int64)">
+            <summary>
+            重新设置Call的超时时间
+            </summary>
+            <param name="time">单位ms</param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.RegisterAPI(System.String,TTSDK.UNBridgeLib.IBridgeAPI)">
+            <summary>
+            Unity注册接口形式的API接口
+            </summary>
+            <param name="name">接口名</param>
+            <param name="api">接口实现</param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.RegisterAPI(System.String,TTSDK.UNBridgeLib.BridgeAPI)">
+            <summary>
+            Unity注册委托形式的API
+            </summary>
+            <param name="name">接口名</param>
+            <param name="api">接口实现</param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.UnRegisterAPI(System.String)">
+            <summary>
+            Unity注销接口形式的API接口
+            </summary>
+            <param name="name">接口名</param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.RegisterEvent(System.String)">
+            <summary>
+            Unity注册事件
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.SendEvent(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+             Unity发送事件消息
+            </summary>
+            <param name="target">目标事件</param>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.Call(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,TTSDK.UNBridgeLib.BridgeCallBack)">
+            <summary>
+            异步调用native的方法
+            </summary>
+            <param name="target">目标接口</param>
+            <param name="param">参数数据</param>
+            <param name="callBack">回调</param>
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.Call(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,TTSDK.UNBridgeLib.BridgeCallBack,System.Int64)">
+            <summary>
+            异步调用native的方法
+            </summary>
+            <param name="target">目标接口</param>
+            <param name="param">参数数据</param>
+            <param name="callBack">回调</param>
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.Listen(System.String,System.Boolean,TTSDK.UNBridgeLib.BridgeCallBack)">
+            <summary>
+            监听事件
+            </summary>
+            <param name="target">目标接口</param>
+            <param name="overOld">新的监听是否覆盖旧的</param>
+            <param name="callBack">回调</param> 
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.UnListen(System.String)">
+            <summary>
+            关闭监听事件
+            </summary>
+            
+            <param name="target">目标接口</param>
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.HandleMsgFromNative(System.String)">
+            <summary>
+            处理Native调用过来的消息
+            </summary>
+            <param name="json">消息数据，JSON格式</param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.HandleNativeCall(TTSDK.UNBridgeLib.BridgeMsg)">
+            <summary>
+            处理Native的调用消息。
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.BridgeCore.HandleNativeCallBack(TTSDK.UNBridgeLib.BridgeMsg)">
+            <summary>
+            处理Unity调用Native回来的回包。
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.BridgeMsg">
+            <summary>
+            消息的封装
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Id">
+            <summary>
+            消息ID
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Type">
+            <summary>
+            消息类型，消息类型0-call消息，1-listen消息,2-unListen消息，3-event消息
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.CallbackId">
+            <summary>
+            回调，唯一
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Code">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Source">
+            <summary>
+            消息来源
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Target">
+            <summary>
+            目标接口或者事件
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.FailMsg">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.ErrorType">
+            <summary>
+            错误类型
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Param">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.UnitySdkVer">
+            <summary>
+            Unity侧的SDK版本号
+            </summary>
+        </member>
+        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.NativeSdkVer">
+            <summary>
+            Native侧的SDK版本号
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.BridgeVersion">
+            <summary>
+            SDK的版本信息
+            </summary>
+        </member>
+        <member name="F:TTSDK.UNBridgeLib.BridgeVersion.VERSION_CODE">
+            <summary>
+            SDK版本号
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.DataUtils">
+            <summary>
+             从JsonData中安全的读取数据的帮助类
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.DataUtils.GetInt(TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            读取int
+            </summary>
+            <param name="data"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.DataUtils.GetString(TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            读取string
+            </summary>
+            <param name="data"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.DataUtils.GetData(TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            读取JsonData
+            </summary>
+            <param name="data"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.DataUtils.GetObject(TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            读取Object
+            </summary>
+            <param name="map"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.IBridgeAPI">
+            <summary>
+            Bridge接口
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.IosUtils">
+            <summary>
+            iOS的通信接口
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.IosUtils.Init">
+            <summary>
+            确保在主线程执行初始化。
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.IosUtils.SendEventNative(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            发送消息到Native
+            </summary>
+            <param name="target"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.IosUtils.CallNative(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+             异步Call通讯
+             </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.IosUtils.CallNative(System.String)">
+            <summary>
+            异步Call通讯，确保调用在主线程执行
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.IosUtils.CallNativeSync(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+             <summary>
+             同步Call通讯
+             </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.IosUtils.CallNativeSync(System.String)">
+            <summary>
+            同步Call通讯
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.IosUtils.MixCall(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            混合Call通讯，调用直接返回一段String的数据，同时会有回调。
+            </summary>
+            <param name="target">目标API接口</param>
+            <param name="param">参数</param>
+            <param name="callbackId">回调ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.IosUtils.HasNativeAPI(System.String)">
+            <summary>
+            查询Native层是否支持某个API
+            </summary>
+            <param name="apiName">接口名</param>
+            <returns></returns>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.LogUtils">
+            <summary>
+            日志辅助类
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.Loom">
+            <summary>
+            线程调度
+            </summary>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.MsgUtils">
+            <summary>
+            处理消息
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketSuccessBackMsg(TTSDK.UNBridgeLib.BridgeMsg,TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            打包成功的回包
+            </summary>
+            <param name="msg">请求的消息</param>
+            <param name="data">回包的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketFailedMsg(TTSDK.UNBridgeLib.BridgeMsg,System.Int32,System.String)">
+            <summary>
+            打包失败的回包
+            </summary>
+            <param name="msg">请求的消息</param>
+            <param name="code">错误码</param>
+            <param name="failMsg">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketCallMsg(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            打包异步Call消息
+            </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unListen消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            <param name="callbackId">回调的id</param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketCallSyncMsg(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            打包同步Call消息
+            </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unListen消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketEventMsg(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            打包事件的消息
+            </summary>
+            <param name="target">目标事件</param>
+            <param name="data">数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.MsgUtils.ParseMsg(System.String)">
+            <summary>
+            解析消息
+            </summary>
+            <param name="json">JSON格式的消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.MsgUtils.ParseResult(System.String)">
+            <summary>
+            同步调用的结果转换
+            </summary>
+            <param name="json">JSON字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.UNBridgeContext">
+            <summary>
+            Bridge的上下文
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.UNBridgeContext.CallBackResult(TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            回调成功
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.UNBridgeContext.CallBackFailed(System.Int32,System.String)">
+            <summary>
+            回调失败
+            </summary>
+            <param name="code">错误码</param>
+            <param name="failMsg">错误信息</param>
+        </member>
+        <member name="T:TTSDK.UNBridgeLib.WebGlUtils">
+            <summary>
+            webgl的通讯接口
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.Init">
+            <summary>
+            确保在主线程执行初始化。
+            </summary>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.SendEventNative(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+            <summary>
+            发送消息到Native
+            </summary>
+            <param name="target"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.CallNative(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+             异步Call通讯
+             </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.CallNative(System.String)">
+            <summary>
+            异步Call通讯，确保调用在主线程执行
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.CallNativeSync(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
+             <summary>
+             同步Call通讯
+             </summary>
+            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
+            <param name="target">目标接口</param>
+            <param name="param">参数</param>
+            
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.CallNativeSync(System.String)">
+            <summary>
+            同步Call通讯
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.NativeHasAPI(System.String)">
+            <summary>
+            查询h5是否支持某个接口
+            </summary>
+            <param name="apiName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.MixCall(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
+            <summary>
+            混合Call通讯，确保调用在主线程执行
+            </summary>
+            <param name="target">目标API接口</param>
+            <param name="param">参数</param>
+            <param name="callbackId">回调ID</param>
+        </member>
+        <member name="T:TTSDK.AndroidStarkCallBridge">
+            <summary>
+            Android 旧的实现 (stark)
+            </summary>
+        </member>
+        <member name="T:TTSDK.AndroidTTCallBridge">
+            <summary>
+            Android 新的实现 (TT)
+            </summary>
+        </member>
+        <member name="T:TTSDK.AndroidCompatibleCallBridge">
+            <summary>
+            TT 和 Stark 旧接口的兼容模式，每个接口在调用时通过 TTNativeCallSettings.IsCallJs 检查是用 TT 的实现还是旧的 Stark 实现
+            </summary>
+        </member>
+        <member name="T:TTSDK.IPhoneCallBridge">
+            <summary>
+            iOS 平台的 call bridge 实现
+            </summary>
+        </member>
+        <member name="T:TTSDK.WebGLCallBridge">
+            <summary>
+            WebGL 平台的 call bridge 实现
+            </summary>
+        </member>
+        <member name="T:TTSDK.ICallBridge">
+            <summary>
+            UNBridge 调用的接口形式封装，方便分发各平台的独立实现
+            </summary>
+        </member>
+        <member name="M:TTSDK.StringExt.UnicodeToUtf8(System.String)">
+            <summary>
+            Unicode转utf8编码
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
         </member>
         <member name="M:TTSDK.AndroidCache.CheckAndSetMaxStorageSpace">
             <summary>
@@ -10178,731 +11366,6 @@
             <param name="beforeNowMs">记录那一刻前的毫秒数</param>
             <param name="afterNowInMillis">记录那一刻后的毫秒数</param>
             <returns>TTGameRecorder.TimeRange</returns>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.AndroidCallJsUtils">
-            <summary>
-            AndroidCallJs的通讯接口
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.Init">
-            <summary>
-            确保在主线程执行初始化。
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.SendEventNative(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-            发送消息到Native
-            </summary>
-            <param name="target"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.CallNative(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-             异步Call通讯
-             </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.CallNative(System.String)">
-            <summary>
-            异步Call通讯，确保调用在主线程执行
-            </summary>
-            <param name="msg"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.CallNativeSync(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-             <summary>
-             同步Call通讯
-             </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.CallNativeSync(System.String)">
-            <summary>
-            同步Call通讯
-            </summary>
-            <param name="msg"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.NativeHasAPI(System.String)">
-            <summary>
-            查询h5是否支持某个接口
-            </summary>
-            <param name="apiName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidCallJsUtils.MixCall(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            混合Call通讯，确保调用在主线程执行
-            </summary>
-            <param name="target">目标API接口</param>
-            <param name="param">参数</param>
-            <param name="callbackId">回调ID</param>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.AndroidUtils">
-            <summary>
-            处理Android通讯的工具类
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.Init">
-            <summary>
-            确保在主线程执行初始化。
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.SendEventNative(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-            发送消息到Native
-            </summary>
-            <param name="target"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.CallNative(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-             异步Call通讯
-             </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.MixCall(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            混合Call通讯，调用直接返回一段String的数据，同时会有回调。
-            </summary>
-            <param name="target">目标API接口</param>
-            <param name="param">参数</param>
-            <param name="callbackId">回调ID</param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.CallNative(System.String)">
-            <summary>
-            异步Call通讯
-            </summary>
-            <param name="msg"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.CallNativeSync(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-             <summary>
-             同步Call通讯
-             </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.CallNativeSync(System.String)">
-            <summary>
-            同步Call通讯
-            </summary>
-            <param name="msg"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.AndroidUtils.HasNativeAPI(System.String)">
-            <summary>
-            查询Native层是否支持某个API
-            </summary>
-            <param name="apiName">接口名</param>
-            <returns></returns>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.BridgeAPI">
-            <summary>
-            BridgeAPI的包装类
-            </summary>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.OnCallBridgeAPI">
-            <summary>
-            BridgeAPI的委托
-            </summary>
-            <param name="context"></param>
-            <param name="para"></param>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.BridgeCallBack">
-            <summary>
-            回调接口
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeCallBack.AddTime">
-            <summary>
-            回调被添加的事件,ns
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeCallBack.TimeoutTime">
-            <summary>
-            默认Call超时,默认使用通用的超时，10秒
-            </summary>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.OnSuccessDelegate">
-            <summary>
-            回调成功
-            </summary>
-            <param name="data"></param>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.OnFailedDelegate">
-            <summary>
-            回调失败
-            </summary>
-            <param name="code">失败码</param>
-            <param name="failMsg">失败原因</param>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.OnTimeoutDelegate">
-            <summary>
-            超时
-            </summary>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.BridgeCore">
-            <summary>
-            UBridge的内部实现
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.TIMEOUT_TIME">
-            <summary>
-            超时时间
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.SUCCESS">
-            <summary>
-            成功
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ERROR_UNSUPPORT">
-            <summary>
-            接口未支持
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ERROR_NOT_SUPPORT_SYNC">
-            <summary>
-            接口不支持异步调用
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ERROR_LACK_PARAM">
-            <summary>
-            缺少参数
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ERROR_NOT_SUPPORT_ASYN">
-            <summary>
-            接口不支持同步调用
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.CallbackMap">
-            <summary>
-            以callback_id为key维护回调。
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.EventMap">
-            <summary>
-            以接口名为key，维护回调
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.ApiMap">
-            <summary>
-             Unity侧以接口的形式实现的API,比委托优先
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.BridgeDelegateMap">
-            <summary>
-            Unity侧以委托的形式实现的API
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.LocalEventList">
-            <summary>
-            本地注册的事件列表
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.RemoteEventList">
-            <summary>
-            Native端注册的事件列表
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.Timer">
-            <summary>
-            超时定时器
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.IsTimerStarted">
-            <summary>
-            定时器是否已经启动，避免重复启动；
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeCore.MaxTimeoutTime">
-            <summary>
-            超时时间，默认10秒
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.StartTimer">
-            <summary>
-            启动超时定时器
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.StopTimer">
-            <summary>
-            停止超时定时器
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.setCallBackTimeout(System.Int64)">
-            <summary>
-            重新设置Call的超时时间
-            </summary>
-            <param name="time">单位ms</param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.RegisterAPI(System.String,TTSDK.UNBridgeLib.IBridgeAPI)">
-            <summary>
-            Unity注册接口形式的API接口
-            </summary>
-            <param name="name">接口名</param>
-            <param name="api">接口实现</param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.RegisterAPI(System.String,TTSDK.UNBridgeLib.BridgeAPI)">
-            <summary>
-            Unity注册委托形式的API
-            </summary>
-            <param name="name">接口名</param>
-            <param name="api">接口实现</param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.UnRegisterAPI(System.String)">
-            <summary>
-            Unity注销接口形式的API接口
-            </summary>
-            <param name="name">接口名</param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.RegisterEvent(System.String)">
-            <summary>
-            Unity注册事件
-            </summary>
-            <param name="target"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.SendEvent(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-             Unity发送事件消息
-            </summary>
-            <param name="target">目标事件</param>
-            <param name="data">数据</param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.Call(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,TTSDK.UNBridgeLib.BridgeCallBack)">
-            <summary>
-            异步调用native的方法
-            </summary>
-            <param name="target">目标接口</param>
-            <param name="param">参数数据</param>
-            <param name="callBack">回调</param>
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.Call(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,TTSDK.UNBridgeLib.BridgeCallBack,System.Int64)">
-            <summary>
-            异步调用native的方法
-            </summary>
-            <param name="target">目标接口</param>
-            <param name="param">参数数据</param>
-            <param name="callBack">回调</param>
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.Listen(System.String,System.Boolean,TTSDK.UNBridgeLib.BridgeCallBack)">
-            <summary>
-            监听事件
-            </summary>
-            <param name="target">目标接口</param>
-            <param name="overOld">新的监听是否覆盖旧的</param>
-            <param name="callBack">回调</param> 
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.UnListen(System.String)">
-            <summary>
-            关闭监听事件
-            </summary>
-            
-            <param name="target">目标接口</param>
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.HandleMsgFromNative(System.String)">
-            <summary>
-            处理Native调用过来的消息
-            </summary>
-            <param name="json">消息数据，JSON格式</param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.HandleNativeCall(TTSDK.UNBridgeLib.BridgeMsg)">
-            <summary>
-            处理Native的调用消息。
-            </summary>
-            <param name="msg"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.BridgeCore.HandleNativeCallBack(TTSDK.UNBridgeLib.BridgeMsg)">
-            <summary>
-            处理Unity调用Native回来的回包。
-            </summary>
-            <param name="msg"></param>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.BridgeMsg">
-            <summary>
-            消息的封装
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Id">
-            <summary>
-            消息ID
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Type">
-            <summary>
-            消息类型，消息类型0-call消息，1-listen消息,2-unListen消息，3-event消息
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.CallbackId">
-            <summary>
-            回调，唯一
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Code">
-            <summary>
-            错误码
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Source">
-            <summary>
-            消息来源
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Target">
-            <summary>
-            目标接口或者事件
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.FailMsg">
-            <summary>
-            错误消息
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Data">
-            <summary>
-            数据
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.Param">
-            <summary>
-            参数
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.UnitySdkVer">
-            <summary>
-            Unity侧的SDK版本号
-            </summary>
-        </member>
-        <member name="P:TTSDK.UNBridgeLib.BridgeMsg.NativeSdkVer">
-            <summary>
-            Native侧的SDK版本号
-            </summary>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.BridgeVersion">
-            <summary>
-            SDK的版本信息
-            </summary>
-        </member>
-        <member name="F:TTSDK.UNBridgeLib.BridgeVersion.VERSION_CODE">
-            <summary>
-            SDK版本号
-            </summary>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.DataUtils">
-            <summary>
-             从JsonData中安全的读取数据的帮助类
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.DataUtils.GetInt(TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            读取int
-            </summary>
-            <param name="data"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.DataUtils.GetString(TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            读取string
-            </summary>
-            <param name="data"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.DataUtils.GetData(TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            读取JsonData
-            </summary>
-            <param name="data"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.DataUtils.GetObject(TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            读取Object
-            </summary>
-            <param name="map"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.IBridgeAPI">
-            <summary>
-            Bridge接口
-            </summary>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.IosUtils">
-            <summary>
-            iOS的通信接口
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.IosUtils.Init">
-            <summary>
-            确保在主线程执行初始化。
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.IosUtils.SendEventNative(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-            发送消息到Native
-            </summary>
-            <param name="target"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.IosUtils.CallNative(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-             异步Call通讯
-             </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.IosUtils.CallNative(System.String)">
-            <summary>
-            异步Call通讯，确保调用在主线程执行
-            </summary>
-            <param name="msg"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.IosUtils.CallNativeSync(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-             <summary>
-             同步Call通讯
-             </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.IosUtils.CallNativeSync(System.String)">
-            <summary>
-            同步Call通讯
-            </summary>
-            <param name="msg"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.IosUtils.MixCall(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            混合Call通讯，调用直接返回一段String的数据，同时会有回调。
-            </summary>
-            <param name="target">目标API接口</param>
-            <param name="param">参数</param>
-            <param name="callbackId">回调ID</param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.IosUtils.HasNativeAPI(System.String)">
-            <summary>
-            查询Native层是否支持某个API
-            </summary>
-            <param name="apiName">接口名</param>
-            <returns></returns>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.LogUtils">
-            <summary>
-            日志辅助类
-            </summary>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.Loom">
-            <summary>
-            线程调度
-            </summary>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.MsgUtils">
-            <summary>
-            处理消息
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketSuccessBackMsg(TTSDK.UNBridgeLib.BridgeMsg,TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-            打包成功的回包
-            </summary>
-            <param name="msg">请求的消息</param>
-            <param name="data">回包的数据</param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketFailedMsg(TTSDK.UNBridgeLib.BridgeMsg,System.Int32,System.String)">
-            <summary>
-            打包失败的回包
-            </summary>
-            <param name="msg">请求的消息</param>
-            <param name="code">错误码</param>
-            <param name="failMsg">错误信息</param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketCallMsg(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            打包异步Call消息
-            </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unListen消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            <param name="callbackId">回调的id</param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketCallSyncMsg(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-            打包同步Call消息
-            </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unListen消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.MsgUtils.PacketEventMsg(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-            打包事件的消息
-            </summary>
-            <param name="target">目标事件</param>
-            <param name="data">数据</param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.MsgUtils.ParseMsg(System.String)">
-            <summary>
-            解析消息
-            </summary>
-            <param name="json">JSON格式的消息</param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.MsgUtils.ParseResult(System.String)">
-            <summary>
-            同步调用的结果转换
-            </summary>
-            <param name="json">JSON字符串</param>
-            <returns></returns>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.UNBridgeContext">
-            <summary>
-            Bridge的上下文
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.UNBridgeContext.CallBackResult(TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-            回调成功
-            </summary>
-            <param name="data">数据</param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.UNBridgeContext.CallBackFailed(System.Int32,System.String)">
-            <summary>
-            回调失败
-            </summary>
-            <param name="code">错误码</param>
-            <param name="failMsg">错误信息</param>
-        </member>
-        <member name="T:TTSDK.UNBridgeLib.WebGlUtils">
-            <summary>
-            webgl的通讯接口
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.Init">
-            <summary>
-            确保在主线程执行初始化。
-            </summary>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.SendEventNative(System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-            <summary>
-            发送消息到Native
-            </summary>
-            <param name="target"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.CallNative(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-             异步Call通讯
-             </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.CallNative(System.String)">
-            <summary>
-            异步Call通讯，确保调用在主线程执行
-            </summary>
-            <param name="msg"></param>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.CallNativeSync(System.Int32,System.String,TTSDK.UNBridgeLib.LitJson.JsonData)">
-             <summary>
-             同步Call通讯
-             </summary>
-            <param name="type">消息类型0-call消息，1-listen消息,2-unlisten消息，3-event消息</param>
-            <param name="target">目标接口</param>
-            <param name="param">参数</param>
-            
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.CallNativeSync(System.String)">
-            <summary>
-            同步Call通讯
-            </summary>
-            <param name="msg"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.NativeHasAPI(System.String)">
-            <summary>
-            查询h5是否支持某个接口
-            </summary>
-            <param name="apiName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:TTSDK.UNBridgeLib.WebGlUtils.MixCall(System.String,TTSDK.UNBridgeLib.LitJson.JsonData,System.String)">
-            <summary>
-            混合Call通讯，确保调用在主线程执行
-            </summary>
-            <param name="target">目标API接口</param>
-            <param name="param">参数</param>
-            <param name="callbackId">回调ID</param>
-        </member>
-        <member name="T:TTSDK.AndroidStarkCallBridge">
-            <summary>
-            Android 旧的实现 (stark)
-            </summary>
-        </member>
-        <member name="T:TTSDK.AndroidTTCallBridge">
-            <summary>
-            Android 新的实现 (TT)
-            </summary>
-        </member>
-        <member name="T:TTSDK.AndroidCompatibleCallBridge">
-            <summary>
-            TT 和 Stark 旧接口的兼容模式，每个接口在调用时通过 TTNativeCallSettings.IsCallJs 检查是用 TT 的实现还是旧的 Stark 实现
-            </summary>
-        </member>
-        <member name="T:TTSDK.IPhoneCallBridge">
-            <summary>
-            iOS 平台的 call bridge 实现
-            </summary>
-        </member>
-        <member name="T:TTSDK.WebGLCallBridge">
-            <summary>
-            WebGL 平台的 call bridge 实现
-            </summary>
-        </member>
-        <member name="T:TTSDK.ICallBridge">
-            <summary>
-            UNBridge 调用的接口形式封装，方便分发各平台的独立实现
-            </summary>
-        </member>
-        <member name="M:TTSDK.StringExt.UnicodeToUtf8(System.String)">
-            <summary>
-            Unicode转utf8编码
-            </summary>
-            <param name="s"></param>
-            <returns></returns>
         </member>
         <member name="T:UNBridge">
             <summary>
