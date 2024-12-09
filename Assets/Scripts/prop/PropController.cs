@@ -29,8 +29,12 @@ public class PropController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetFloorActived("floor", floors, floorObjectPool);
-        SetActived("Enemy", Enemies, EnemyObjectPool);
+        if (Global.IsGo)
+        {
+            SetFloorActived("floor", floors, floorObjectPool);
+            SetActived("Enemy", Enemies, EnemyObjectPool);
+        }
+        
         
         
     }

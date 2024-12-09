@@ -19,6 +19,7 @@ public class HomeButton : MonoBehaviour
     {
         Time.timeScale = 0;
         home.SetActive(true);
+        Global.IsGo = false;
     }
 
     // Update is called once per frame
