@@ -31,6 +31,8 @@ public class PropController : MonoBehaviour
     {
         SetFloorActived("floor", floors, floorObjectPool);
         SetActived("Enemy", Enemies, EnemyObjectPool);
+        
+        
     }
 
     //

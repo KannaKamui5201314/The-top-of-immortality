@@ -15,4 +15,6 @@ public class Global
 
     public static int InitialFloorCount = 100;
     public static int InitialEnemyCount = 100;
+
+    public static bool IsGo = false;
 }

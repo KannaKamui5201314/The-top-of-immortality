@@ -12,7 +12,8 @@ public class UIController : MonoBehaviour
 
     private Transform Loading;
     private TextMeshProUGUI LoadingText;
-    private bool isLoaded;
+    [HideInInspector]
+    public bool isLoaded;
     float LoadingSum;
 
     private Transform floors;
@@ -27,7 +28,7 @@ public class UIController : MonoBehaviour
 
         Loading = transform.Find("Loading");
         LoadingText = Loading.GetComponentInChildren<TextMeshProUGUI>();
-        Loading.gameObject.SetActive(true);
+        //Loading.gameObject.SetActive(true);
 
         floors = GameObject.FindGameObjectWithTag("floors").transform;
         Enemies = GameObject.FindGameObjectWithTag("Enemies").transform;
@@ -36,7 +37,11 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        _Loading();
+        if (Global.IsGo)
+        {
+            _Loading();
+        }
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -63,6 +68,7 @@ public class UIController : MonoBehaviour
             {
                 isLoaded = true;
                 Loading.gameObject.SetActive(false);
+                Time.timeScale = 1;
             }
         }
     }

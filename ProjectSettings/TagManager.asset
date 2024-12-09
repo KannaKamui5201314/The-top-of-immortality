@@ -13,6 +13,9 @@ TagManager:
   - Enemies
   - Booms
   - prop
+  - FxTemporaire
+  - Home
+  - Loading
   layers:
   - Default
   - TransparentFX
