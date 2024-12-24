@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using TTSDK;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +10,25 @@ public class Home : MonoBehaviour
 {
     private Button Go;
     private UIController uiController;
-    // Start is called before the first frame update
+    TextMeshProUGUI Gold_Home_Text;
+
+    private void Awake()
+    {
+        Gold_Home_Text = transform.Find("Gold_Home").GetComponentInChildren<TextMeshProUGUI>();
+    }
+
+    void OnEnable()
+    {
+        Gold_Home_Text.text = Global.Gold.ToString();
+    }
+
     void Start()
     {
         Go = transform.Find("Go").GetComponent<Button>();
+        
         uiController = transform.parent.GetComponent<UIController>();
         Go.onClick.AddListener(GoOnclick);
+        Gold_Home_Text.text = Global.Gold.ToString();
         Time.timeScale = 0;
     }
 
@@ -33,8 +48,5 @@ public class Home : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

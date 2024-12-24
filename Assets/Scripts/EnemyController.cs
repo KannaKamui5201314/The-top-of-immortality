@@ -199,6 +199,8 @@ public class EnemyController : MonoBehaviour
             {
                 a_Enemy.Play("knockdown");//À¿Õˆ
                 propController.EnemyObjectPool.ReturnObject(gameObject);//ªÿ ’µ–»À
+                Global.Gold += 100 * Global.Boundary;
+                Global.RefreshGoldUI = true;
             }
             SetHealthBar(_Health);
         }

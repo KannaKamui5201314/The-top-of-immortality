@@ -26,6 +26,11 @@ public class GameController : MonoBehaviour
         {
             TT.PlayerPrefs.SetInt("Boundary", 1);
         }
+        //½ð±Ò
+        if (TT.PlayerPrefs.GetString("Gold") == "")
+        {
+            TT.PlayerPrefs.SetString("Gold", "0");
+        }
         //¾³½ç
         if (TT.PlayerPrefs.GetInt("Realm") == 0)
         {
@@ -47,6 +52,7 @@ public class GameController : MonoBehaviour
             TT.PlayerPrefs.SetString("Defense", "50");
         }
         Global.Boundary = TT.PlayerPrefs.GetInt("Boundary");
+        Global.Gold = long.Parse(TT.PlayerPrefs.GetString("Gold"));
         new Player(TT.PlayerPrefs.GetInt("Realm"), long.Parse(TT.PlayerPrefs.GetString("Health")), long.Parse(TT.PlayerPrefs.GetString("Strength")), long.Parse(TT.PlayerPrefs.GetString("Defense")));
     }
 }

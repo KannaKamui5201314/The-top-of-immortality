@@ -14,6 +14,7 @@ public class Panel : MonoBehaviour
     TextMeshProUGUI realm;
     RectTransform Health;
     TextMeshProUGUI HealthText;
+    TextMeshProUGUI Gold_Play_Text;
 
     public GameObject personalInfoQuit;
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class Panel : MonoBehaviour
         realm = transform.Find("Realm").GetComponent<TextMeshProUGUI>();
         Health = (RectTransform)transform.Find("Panel_Health").Find("Health");
         HealthText = transform.Find("Panel_Health").GetComponentInChildren<TextMeshProUGUI>();
+        Gold_Play_Text = transform.Find("Gold_Play").GetComponentInChildren<TextMeshProUGUI>();
 
         Boundary.text = "第" + oldBoundary.ToString() + "界";
         HeadPortrait.onClick.AddListener(OnHeadPortraitClick);
@@ -41,7 +43,7 @@ public class Panel : MonoBehaviour
         {
             HealthText.text = Player.Health.ToString();
         }
-
+        Gold_Play_Text.text = Global.Gold.ToString();
     }
 
     private void OnHeadPortraitClick()
@@ -58,6 +60,13 @@ public class Panel : MonoBehaviour
         {
             oldBoundary = Global.Boundary;
             Boundary.text = "第" + oldBoundary.ToString() + "界";
+        }
+
+        if (Global.RefreshGoldUI)
+        {
+            Gold_Play_Text.text = Global.Gold.ToString();
+            TT.PlayerPrefs.SetString("Gold", Global.Gold.ToString());
+            Global.RefreshGoldUI = false;
         }
     }
 }

@@ -3,6 +3,8 @@ using UnityEngine;
 public class Global
 {
     public static int Boundary = 0;
+    public static long Gold = 0;
+    public static bool RefreshGoldUI = false;
 
     public static float PlayerRunSpeed = 7f;
     public static float BoomSpeed = 12f;
